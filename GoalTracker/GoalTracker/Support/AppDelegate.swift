@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     FirebaseApp.configure()
-//    Tasks.getInstance().load()
+    
+    if let journal = fetchData() {
+      journalList = journal
+      
+    }else {
+      journalList = [String]()
+    }
     return true
   }
 
@@ -35,7 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-//    Tasks.getInstance().save()
+    saveData(journalList: journalList!)
+  }
+  
+  func applicationDidEnterBackground(_ application: UIApplication) {
+    saveData(journalList: journalList!)
   }
 }
 

@@ -14,7 +14,6 @@
 		3117635E27693028001728B6 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 3117635C27693028001728B6 /* list.png */; };
 		3117635F27693028001728B6 /* typing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3117635D27693028001728B6 /* typing.png */; };
 		312DD9FE2769E34300175014 /* GoalsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312DD9FC2769E34300175014 /* GoalsViewCell.swift */; };
-		312DD9FF2769E34300175014 /* GoalsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312DD9FD2769E34300175014 /* GoalsViewCell.xib */; };
 		314F1B5927690E20003AE91C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 314F1B5827690E20003AE91C /* GoogleService-Info.plist */; };
 		317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D35E8276A0A02001B0C72 /* JournalViewController.swift */; };
 		317D35EB276A11C6001B0C72 /* draw.png in Resources */ = {isa = PBXBuildFile; fileRef = 317D35EA276A11C6001B0C72 /* draw.png */; };
@@ -31,13 +30,18 @@
 		31B1B7D52767546900E38D0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D12767546900E38D0E /* LoginViewController.swift */; };
 		31B1B7D92767546F00E38D0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D72767546F00E38D0E /* Constants.swift */; };
 		31B1B7DA2767546F00E38D0E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D82767546F00E38D0E /* Utilities.swift */; };
+		31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */; };
+		31C04512277996EA00FAEEB0 /* AddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C04511277996EA00FAEEB0 /* AddGoalViewController.swift */; };
+		31C045142779A0EB00FAEEB0 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C045132779A0EB00FAEEB0 /* Goals.swift */; };
 		31E013872770A4350023231F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E013862770A4350023231F /* CalendarViewController.swift */; };
 		31E9A4082773090B0021D795 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A4072773090B0021D795 /* Checkbox.swift */; };
 		31E9A40A277309820021D795 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A409277309820021D795 /* ToDoViewController.swift */; };
 		31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40B277309990021D795 /* AddTaskViewController.swift */; };
 		31E9A40E277309CC0021D795 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */; };
 		31E9A41027730A600021D795 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40F27730A600021D795 /* Todo.swift */; };
-		31F1A13427708F630007BC7C /* TypeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1A13327708F630007BC7C /* TypeJournalViewController.swift */; };
+		31F1A13427708F630007BC7C /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1A13327708F630007BC7C /* AddJournalViewController.swift */; };
+		31F3861E27788408006F4306 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3861D27788408006F4306 /* UserData.swift */; };
+		31F3862027789E82006F4306 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3861F27789E82006F4306 /* DetailVC.swift */; };
 		F4492C9A36E17931CF188B02 /* Pods_GoalTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D292D5E089784AA7C8F057D9 /* Pods_GoalTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +53,6 @@
 		3117635C27693028001728B6 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		3117635D27693028001728B6 /* typing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typing.png; sourceTree = "<group>"; };
 		312DD9FC2769E34300175014 /* GoalsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewCell.swift; sourceTree = "<group>"; };
-		312DD9FD2769E34300175014 /* GoalsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalsViewCell.xib; sourceTree = "<group>"; };
 		314F1B5827690E20003AE91C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		317D35E8276A0A02001B0C72 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		317D35EA276A11C6001B0C72 /* draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw.png; sourceTree = "<group>"; };
@@ -68,13 +71,18 @@
 		31B1B7D12767546900E38D0E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31B1B7D72767546F00E38D0E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		31B1B7D82767546F00E38D0E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		31C04511277996EA00FAEEB0 /* AddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewController.swift; sourceTree = "<group>"; };
+		31C045132779A0EB00FAEEB0 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		31E013862770A4350023231F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		31E9A4072773090B0021D795 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		31E9A409277309820021D795 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		31E9A40B277309990021D795 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U0010CheckTableViewCell.swift"; sourceTree = "<group>"; };
 		31E9A40F27730A600021D795 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		31F1A13327708F630007BC7C /* TypeJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeJournalViewController.swift; sourceTree = "<group>"; };
+		31F1A13327708F630007BC7C /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
+		31F3861D27788408006F4306 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		31F3861F27789E82006F4306 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		85275C8CFA577E958BE17631 /* Pods-GoalTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalTracker.debug.xcconfig"; path = "Target Support Files/Pods-GoalTracker/Pods-GoalTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CB1C05F73821E08ECFA0DEF6 /* Pods-GoalTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalTracker.release.xcconfig"; path = "Target Support Files/Pods-GoalTracker/Pods-GoalTracker.release.xcconfig"; sourceTree = "<group>"; };
 		D292D5E089784AA7C8F057D9 /* Pods_GoalTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				317D35E8276A0A02001B0C72 /* JournalViewController.swift */,
-				31F1A13327708F630007BC7C /* TypeJournalViewController.swift */,
+				31F1A13327708F630007BC7C /* AddJournalViewController.swift */,
+				31F3861F27789E82006F4306 /* DetailVC.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				31E9A40F27730A600021D795 /* Todo.swift */,
+				31C045132779A0EB00FAEEB0 /* Goals.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,7 +168,6 @@
 			children = (
 				31B1B7CB2767546500E38D0E /* Main.storyboard */,
 				31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */,
-				312DD9FD2769E34300175014 /* GoalsViewCell.xib */,
 				312DD9FC2769E34300175014 /* GoalsViewCell.swift */,
 			);
 			path = Views;
@@ -201,10 +210,11 @@
 		31B1B7CD2767546900E38D0E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3101CE5B2774B12C00B124A9 /* Journal */,
-				3101CE5A2774B11800B124A9 /* Calendar */,
-				3101CE592774B0E100B124A9 /* Registration */,
+				31C0450E2779950700FAEEB0 /* Goals */,
 				3101CE582774B0BA00B124A9 /* TodayControllers */,
+				3101CE5A2774B11800B124A9 /* Calendar */,
+				3101CE5B2774B12C00B124A9 /* Journal */,
+				3101CE592774B0E100B124A9 /* Registration */,
 				31B1B7D02767546900E38D0E /* HomeViewController.swift */,
 			);
 			path = Controllers;
@@ -216,8 +226,18 @@
 				31E9A4072773090B0021D795 /* Checkbox.swift */,
 				31B1B7D72767546F00E38D0E /* Constants.swift */,
 				31B1B7D82767546F00E38D0E /* Utilities.swift */,
+				31F3861D27788408006F4306 /* UserData.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		31C0450E2779950700FAEEB0 /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */,
+				31C04511277996EA00FAEEB0 /* AddGoalViewController.swift */,
+			);
+			path = Goals;
 			sourceTree = "<group>";
 		};
 		31E9A41127731A190021D795 /* Support */ = {
@@ -309,7 +329,6 @@
 				3117635F27693028001728B6 /* typing.png in Resources */,
 				31B1B7C42767544600E38D0E /* LaunchScreen.storyboard in Resources */,
 				31B1B7C12767544600E38D0E /* Assets.xcassets in Resources */,
-				312DD9FF2769E34300175014 /* GoalsViewCell.xib in Resources */,
 				317FB4392767CD870011CA1A /* think.png in Resources */,
 				3117635B27692FFB001728B6 /* writing.png in Resources */,
 				31B1B7CC2767546500E38D0E /* Main.storyboard in Resources */,
@@ -372,17 +391,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B1B7D52767546900E38D0E /* LoginViewController.swift in Sources */,
+				31C045142779A0EB00FAEEB0 /* Goals.swift in Sources */,
 				317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */,
 				31E9A4082773090B0021D795 /* Checkbox.swift in Sources */,
 				31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */,
 				31B1B7D32767546900E38D0E /* MainViewController.swift in Sources */,
+				31F3862027789E82006F4306 /* DetailVC.swift in Sources */,
 				31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */,
 				312DD9FE2769E34300175014 /* GoalsViewCell.swift in Sources */,
 				31B1B7D22767546900E38D0E /* SignUpViewController.swift in Sources */,
 				31B1B7BA2767544500E38D0E /* SceneDelegate.swift in Sources */,
-				31F1A13427708F630007BC7C /* TypeJournalViewController.swift in Sources */,
+				31F1A13427708F630007BC7C /* AddJournalViewController.swift in Sources */,
+				31C04512277996EA00FAEEB0 /* AddGoalViewController.swift in Sources */,
+				31F3861E27788408006F4306 /* UserData.swift in Sources */,
 				31B1B7DA2767546F00E38D0E /* Utilities.swift in Sources */,
 				31B1B7D42767546900E38D0E /* HomeViewController.swift in Sources */,
+				31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */,
 				31E9A40A277309820021D795 /* ToDoViewController.swift in Sources */,
 				31E9A40E277309CC0021D795 /* CheckTableViewCell.swift in Sources */,
 				318E75B92770B80C00F4B61F /* SecCalendarViewController.swift in Sources */,

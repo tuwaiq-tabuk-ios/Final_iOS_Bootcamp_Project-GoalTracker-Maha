@@ -12,4 +12,5 @@ target 'GoalTracker' do
   pod 'FSCalendar'
   pod 'QVRWeekView'
   pod 'CalendarKit'
+  pod 'HorizonCalendar'
 end
