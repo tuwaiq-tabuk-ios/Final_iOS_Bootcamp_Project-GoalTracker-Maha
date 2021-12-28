@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
   
   
   @IBOutlet var firstNameTextField: UITextField!
@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
   func setUpElement() {
     // hide error label
     errorLabel.alpha = 0
-    
+    firstNameTextField.becomeFirstResponder()
     // style the elements
     Utilities.styleTextField(firstNameTextField)
     Utilities.styleTextField(lastNameTextField)
@@ -125,6 +125,11 @@ class SignUpViewController: UIViewController {
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
+  }
+  
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
   }
   
 }

@@ -13,6 +13,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   @IBOutlet weak var tableView: UITableView!
   
   var currentTitle: String = ""
+  var currentDescription: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,5 +54,13 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
       journalList?.remove(at: indexPath.row)
       tableView.reloadData()
     }
+  }
+  
+   func tableView(_ tableView: UITableView,
+                          didSelectRowAt indexPath: IndexPath) {
+    
+     currentDescription = (journalList?[indexPath.row])!
+    performSegue(withIdentifier: "Show Detail", sender: nil)
+    
   }
 }

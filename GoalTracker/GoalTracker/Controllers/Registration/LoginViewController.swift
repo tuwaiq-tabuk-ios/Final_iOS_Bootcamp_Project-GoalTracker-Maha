@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
   
   
   
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     
     // hide error label
     errorLabel.alpha = 0
-   
+    emailTextField.becomeFirstResponder()
     // style the elements
     Utilities.styleTextField(emailTextField)
     Utilities.styleTextField(passwordTextField)
@@ -61,7 +61,11 @@ class LoginViewController: UIViewController {
         self.view.window?.makeKeyAndVisible()
       }
     }
-  }
+    
+    
+    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
@@ -73,3 +77,4 @@ class LoginViewController: UIViewController {
     */
 
 }
+  }

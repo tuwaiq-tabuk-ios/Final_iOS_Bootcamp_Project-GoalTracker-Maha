@@ -4,7 +4,7 @@
 //
 //  Created by Maha S on 15/12/2021.
 //
-
+import Firebase
 import UIKit
 
 protocol AddTaskViewControllerDelegate: AnyObject {
@@ -13,7 +13,7 @@ protocol AddTaskViewControllerDelegate: AnyObject {
 }
 
 
-class AddTaskViewController: UIViewController {
+class AddTaskViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var done: UIButton!
   @IBOutlet weak var textfield: UITextField!
@@ -33,6 +33,7 @@ class AddTaskViewController: UIViewController {
   
   func setUpElement() {
     textfield.becomeFirstResponder()
+    
     // style the elements
     Utilities.styleTextField(textfield)
     Utilities.styleFilledButton(done)
@@ -45,4 +46,8 @@ class AddTaskViewController: UIViewController {
     delegate?.todoViewController(self, didSaveTodo: todo)
   }
   
+  
+override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
 }

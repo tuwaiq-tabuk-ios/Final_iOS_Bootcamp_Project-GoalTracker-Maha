@@ -16,10 +16,10 @@ struct Goal {
 }
 
 let goals: [Goal] = [
-  Goal(title: "Career&Work", image: UIImage(named: "Career")!),
-  Goal(title: "Finance&Money", image: UIImage(named: "Money")!),
-  Goal(title: "LifeStyle", image: UIImage(named: "LifeStyle")!),
-  Goal(title: "WorkingOut", image: UIImage(named: "Workingout")!),
+  Goal(title: "Career & Work", image: UIImage(named: "Career")!),
+  Goal(title: "Finance & Money", image: UIImage(named: "Money")!),
+  Goal(title: "Lifestyle", image: UIImage(named: "LifeStyle")!),
+  Goal(title: "Reading", image: UIImage(named: "Reading")!),
   Goal(title: "Meditation", image: UIImage(named: "Meditation")!),
-  Goal(title: "Reading", image: UIImage(named: "Reading")!)
+  Goal(title: "Working out", image: UIImage(named: "Workingout")!)
 ]

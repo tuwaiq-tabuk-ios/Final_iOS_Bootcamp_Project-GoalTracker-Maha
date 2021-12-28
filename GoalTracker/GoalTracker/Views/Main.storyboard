@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -373,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bD0-rV-CKu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5799" y="999"/>
+            <point key="canvasLocation" x="4890" y="933"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="FIh-oE-g04">
@@ -434,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSJ-H8-1Ga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5799" y="1704"/>
+            <point key="canvasLocation" x="4891" y="1683"/>
         </scene>
         <!--ViewController-->
         <scene sceneID="tyz-EN-Ib5">
@@ -446,7 +447,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qmt-CD-leM">
                                 <rect key="frame" x="0.0" y="104" width="414" height="601"/>
-                                <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Primary Brand Fill Color"/>
                                 <color key="separatorColor" red="1" green="0.8091609018" blue="0.78160244830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -532,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d16-WU-Cc7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="1307.8125"/>
+            <point key="canvasLocation" x="1780" y="1308"/>
         </scene>
         <!--Today-->
         <scene sceneID="UYi-Sa-zmp">
@@ -545,6 +546,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Dyx-lF-gBA">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Secondary Brand Fill Color"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.070680469230000001" green="0.16433085450000001" blue="0.33750350890000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
@@ -561,7 +563,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNd-F1-JUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="598"/>
+            <point key="canvasLocation" x="1780" y="598"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="9Nb-hI-lOm">
@@ -574,6 +576,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rhP-cR-FdN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Secondary Brand Fill Color"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5EG-YD-572" kind="relationship" relationship="rootViewController" id="al7-zg-PUR"/>
@@ -581,7 +584,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjF-gQ-dgO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677" y="598"/>
+            <point key="canvasLocation" x="2536" y="598"/>
         </scene>
         <!--My Goals-->
         <scene sceneID="90m-kg-eAE">
@@ -604,6 +607,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <segue destination="UEP-6F-Z8z" kind="show" id="lQ7-0o-LKk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -628,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dM-Um-FIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3418.840579710145" y="1307.8125"/>
+            <point key="canvasLocation" x="3267" y="1308"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="tGn-4I-RlR">
@@ -644,7 +650,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bel-Uh-OHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677" y="1308"/>
+            <point key="canvasLocation" x="2535" y="1308"/>
         </scene>
         <!--My Goals-->
         <scene sceneID="dDV-CY-uyg">
@@ -665,7 +671,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4R-vY-GK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3419" y="598"/>
+            <point key="canvasLocation" x="3268" y="598"/>
         </scene>
         <!--Journal-->
         <scene sceneID="Xfd-Yb-zpI">
@@ -691,24 +697,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7O-0V-bgi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5022" y="598"/>
+            <point key="canvasLocation" x="4128" y="598"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="U9e-4D-MYN">
             <objects>
                 <viewController id="d8Y-Ja-VmV" customClass="AddTaskViewController" customModule="GoalTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VFo-7o-rpy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just add a thing you want to do today! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8x-9j-8dG">
-                                <rect key="frame" x="40" y="394" width="334" height="20.5"/>
+                                <rect key="frame" x="40" y="534" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" red="0.070680469230000001" green="0.16433085450000001" blue="0.33750350890000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Task" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMR-1H-r8F">
-                                <rect key="frame" x="65" y="447" width="284" height="40"/>
+                                <rect key="frame" x="65" y="587" width="284" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SdW-cl-VAF"/>
                                 </constraints>
@@ -716,13 +722,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="draw.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uku-ab-bqA">
-                                <rect key="frame" x="0.0" y="54" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="194" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="mHl-Ud-kiv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bM-p4-aOi">
-                                <rect key="frame" x="100" y="507" width="214" height="30"/>
+                                <rect key="frame" x="100" y="647" width="214" height="30"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.70196078429999997" blue="0.44141967353951889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="44L-lI-hts"/>
@@ -768,33 +774,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azg-9d-d7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="1308"/>
+            <point key="canvasLocation" x="1043" y="1308"/>
         </scene>
-        <!--Add Goal View Controller-->
+        <!--Goal Category View Controller-->
         <scene sceneID="sUB-2d-fcq">
             <objects>
-                <viewController id="3Ya-Cf-uw0" customClass="AddGoalViewController" customModule="GoalTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Ya-Cf-uw0" customClass="GoalCategoryViewController" customModule="GoalTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BrP-W8-O8M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FJf-kl-mhd">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="185" width="414" height="628"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b8r-gJ-Mzm">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="6" height="60"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="Hgc-L6-8dk" userLabel="Cell Content View">
-                                    <rect key="frame" x="0.0" y="-52" width="414" height="725"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GoalsViewCell" id="P2J-3f-dNX" userLabel="GoalsViewCell" customClass="GoalsViewCell" customModule="GoalTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="166" height="167"/>
+                                        <rect key="frame" x="0.0" y="60" width="166" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZkL-Vg-cXL">
                                             <rect key="frame" x="0.0" y="0.0" width="166" height="167"/>
@@ -831,6 +837,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CBN-Py-ADb">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="3Ya-Cf-uw0" id="omA-ys-3fQ"/>
                                     <outlet property="delegate" destination="3Ya-Cf-uw0" id="pzh-T1-OxQ"/>
@@ -842,7 +852,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FJf-kl-mhd" secondAttribute="trailing" id="Eei-WZ-oav"/>
                             <constraint firstItem="FJf-kl-mhd" firstAttribute="leading" secondItem="BrP-W8-O8M" secondAttribute="leading" id="HD2-nh-hi2"/>
-                            <constraint firstItem="FJf-kl-mhd" firstAttribute="top" secondItem="BrP-W8-O8M" secondAttribute="topMargin" constant="-52" id="e2R-Ys-ZxI"/>
+                            <constraint firstItem="FJf-kl-mhd" firstAttribute="top" secondItem="BrP-W8-O8M" secondAttribute="topMargin" constant="45" id="e2R-Ys-ZxI"/>
                             <constraint firstItem="FJf-kl-mhd" firstAttribute="bottom" secondItem="Def-1o-m3J" secondAttribute="bottom" id="kvj-xb-LFd"/>
                         </constraints>
                     </view>
@@ -855,23 +865,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpx-no-yZl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4066.666666666667" y="2036.3839285714284"/>
+            <point key="canvasLocation" x="3267" y="2026"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Goal View Controller-->
         <scene sceneID="1oX-hv-U58">
             <objects>
-                <viewController id="UEP-6F-Z8z" sceneMemberID="viewController">
+                <viewController id="UEP-6F-Z8z" customClass="AddGoalViewController" customModule="GoalTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ceh-v1-rq6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="mMQ-EE-Hyb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a new goal" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ng5-rf-1bC">
+                                        <rect key="frame" x="20" y="190" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="G8N-yc-TSz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starting Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbw-sa-NbO">
+                                        <rect key="frame" x="20" y="260" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LlP-XS-Qf3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMe-gw-7zK">
+                                        <rect key="frame" x="20" y="330" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="e37-ON-2SC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atb-l2-fg6">
+                                        <rect key="frame" x="153" y="440" width="109" height="31"/>
+                                        <color key="backgroundColor" red="1" green="0.76443233939999999" blue="0.51532891489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="mzm-3I-ET1"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Add">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="kmc-P7-8ji"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="kmc-P7-8ji" firstAttribute="trailing" secondItem="xbw-sa-NbO" secondAttribute="trailing" constant="20" id="5mx-Py-AAL"/>
+                                    <constraint firstItem="xbw-sa-NbO" firstAttribute="top" secondItem="ng5-rf-1bC" secondAttribute="bottom" constant="20" id="6RB-gZ-8cG"/>
+                                    <constraint firstItem="kmc-P7-8ji" firstAttribute="trailing" secondItem="zMe-gw-7zK" secondAttribute="trailing" constant="20" id="HQt-9x-hG5"/>
+                                    <constraint firstItem="ng5-rf-1bC" firstAttribute="top" secondItem="kmc-P7-8ji" secondAttribute="top" constant="50" id="M1A-I2-i6H"/>
+                                    <constraint firstItem="ng5-rf-1bC" firstAttribute="leading" secondItem="kmc-P7-8ji" secondAttribute="leading" constant="20" id="OUB-ND-ad7"/>
+                                    <constraint firstItem="zMe-gw-7zK" firstAttribute="top" secondItem="xbw-sa-NbO" secondAttribute="bottom" constant="20" id="Zfl-DF-mRe"/>
+                                    <constraint firstItem="xbw-sa-NbO" firstAttribute="leading" secondItem="kmc-P7-8ji" secondAttribute="leading" constant="20" id="ccH-a3-3Fa"/>
+                                    <constraint firstItem="atb-l2-fg6" firstAttribute="leading" secondItem="kmc-P7-8ji" secondAttribute="leading" constant="153" id="cnt-WT-DZ9"/>
+                                    <constraint firstItem="kmc-P7-8ji" firstAttribute="trailing" secondItem="atb-l2-fg6" secondAttribute="trailing" constant="152" id="g8g-hz-ZjN"/>
+                                    <constraint firstItem="atb-l2-fg6" firstAttribute="top" secondItem="zMe-gw-7zK" secondAttribute="bottom" constant="60" id="rNd-aa-xZT"/>
+                                    <constraint firstItem="zMe-gw-7zK" firstAttribute="leading" secondItem="kmc-P7-8ji" secondAttribute="leading" constant="20" id="w1i-fL-4MG"/>
+                                    <constraint firstItem="kmc-P7-8ji" firstAttribute="trailing" secondItem="ng5-rf-1bC" secondAttribute="trailing" constant="20" id="xAl-ar-wOk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Z1t-dV-vp5"/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="K0j-UE-yhz"/>
+                    <connections>
+                        <outlet property="addButton" destination="atb-l2-fg6" id="iVZ-YI-GIp"/>
+                        <outlet property="addTextField" destination="ng5-rf-1bC" id="S5Y-gE-RD6"/>
+                        <outlet property="categoryTextField" destination="zMe-gw-7zK" id="Dp2-eM-AFe"/>
+                        <outlet property="dateTextField" destination="xbw-sa-NbO" id="Zjx-n4-waT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFP-Zi-DNO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3219" y="2036"/>
+            <point key="canvasLocation" x="2487" y="2026"/>
         </scene>
         <!--JournalView-->
         <scene sceneID="bgz-DA-jdI">
@@ -970,7 +1052,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fld-1s-6Ya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5023" y="1296"/>
+            <point key="canvasLocation" x="4128" y="1308"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eLs-te-xQe">
@@ -989,6 +1071,7 @@
                         <segue destination="MJ0-zq-h0a" kind="relationship" relationship="viewControllers" id="Jwp-KW-Ouw"/>
                         <segue destination="KTO-Kx-rdA" kind="relationship" relationship="viewControllers" id="fMZ-C0-rZx"/>
                         <segue destination="R1m-Ez-RCh" kind="relationship" relationship="viewControllers" id="RDP-5O-R5e"/>
+                        <segue destination="pje-DI-ohP" kind="relationship" relationship="viewControllers" id="iuy-Go-DAZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXE-wS-c6o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1062,8 +1145,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Dd7-nO-qi5"/>
-        <segue reference="09K-lS-4V7"/>
+        <segue reference="lQ7-0o-LKk"/>
+        <segue reference="wgo-9p-OXI"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" name="Brand Accent Color"/>
     <resources>
         <image name="BackIcon" width="48" height="48"/>
         <image name="Journal" width="50" height="50"/>
@@ -1074,5 +1159,14 @@
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="think.png" width="571" height="499"/>
         <image name="today" width="34.666667938232422" height="34.666667938232422"/>
+        <namedColor name="Brand Accent Color">
+            <color red="1" green="0.36078431372549019" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary Brand Fill Color">
+            <color red="0.90588235294117647" green="0.95686274509803915" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Brand Fill Color">
+            <color red="0.92549019607843142" green="0.92156862745098034" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

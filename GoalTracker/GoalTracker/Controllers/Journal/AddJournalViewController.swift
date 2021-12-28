@@ -40,15 +40,15 @@ class AddJournalViewController: UIViewController {
 
     }
     
-    if (journalTextField.text != nil) && journalTextField.text != "" {
-      journalList?.append(journalTextField.text!)
-      journalTextField.text = ""
-    }
-    
-    if (dateText.text != nil) && dateText.text != "" {
-      journalList?.append(dateText.text!)
-    
-    }
+//    if (journalTextField.text != nil) && journalTextField.text != "" {
+//      journalList?.append(journalTextField.text!)
+//      journalTextField.text = ""
+//    }
+//
+//    if (dateText.text != nil) && dateText.text != "" {
+//      journalList?.append(dateText.text!)
+//
+//    }
 
   }
   
