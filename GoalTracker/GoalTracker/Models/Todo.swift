@@ -22,6 +22,4 @@ struct Todo {
     return Todo(title: title, isComplete: !isComplete)
   }
   
-  
-  
 }

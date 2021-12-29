@@ -32,11 +32,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     errorLabel.alpha = 0
     firstNameTextField.becomeFirstResponder()
     // style the elements
-    Utilities.styleTextField(firstNameTextField)
-    Utilities.styleTextField(lastNameTextField)
-    Utilities.styleTextField(emailTextField)
-    Utilities.styleTextField(passwordTextField)
-    Utilities.styleFilledButton(signUpButton)
+//    Utilities.styleTextField(firstNameTextField)
+//    Utilities.styleTextField(lastNameTextField)
+//    Utilities.styleTextField(emailTextField)
+//    Utilities.styleTextField(passwordTextField)
+//    Utilities.styleFilledButton(signUpButton)
     
   }
   
@@ -121,7 +121,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   
   func transitionToHome() {
     
-    let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+    let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()

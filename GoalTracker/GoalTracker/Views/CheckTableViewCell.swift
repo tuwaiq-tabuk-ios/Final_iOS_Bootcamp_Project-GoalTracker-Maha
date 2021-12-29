@@ -45,6 +45,4 @@ class CheckTableViewCell: UITableViewCell {
     
     label.attributedText = attributedString
   }
-  
-
 }

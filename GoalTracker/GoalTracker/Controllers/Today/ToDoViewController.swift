@@ -116,7 +116,6 @@ extension ToDoViewController: CheckTableViewCellDelegate {
 }
 
 
-
 extension ToDoViewController: AddTaskViewControllerDelegate {
   
   func todoViewController(_ vc: AddTaskViewController, didSaveTodo todo: Todo) {
@@ -132,6 +131,7 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
         // create
         self.todos.append(todo)
         self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
+        self.tableView.reloadData()
       }
     }
   

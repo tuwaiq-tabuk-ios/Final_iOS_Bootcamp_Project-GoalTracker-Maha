@@ -7,6 +7,13 @@
 
 import UIKit
 
+
+protocol AddGoalViewControllerDelegate: AnyObject {
+  
+  func addGoalViewController(_ vc: AddGoalViewController, didSaveGoal goal: Goal)
+}
+
+
 class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
   
   
@@ -19,8 +26,14 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   let categoryPicker = UIPickerView()
   var currentIndex = 0
   
+  weak var delegate: AddGoalViewControllerDelegate?
+
+  var goal: Goal?
+  
   override func viewDidLoad() {
       super.viewDidLoad()
+    
+    addTextField.text = goal?.title
     
     setUpElement()
     
@@ -45,9 +58,18 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                                      target: self,
                                      action: #selector(closePicker))
     toolBar.setItems([buttonDone], animated: true)
+    
     categoryTextField.inputAccessoryView = toolBar
     dateTextField.inputAccessoryView = toolBar
+    categoryTextField.textAlignment = .center
+    dateTextField.textAlignment = .center
     }
+  
+  
+  @IBAction func save(_ sender: Any) {
+    let goal = Goal(title: addTextField.text!)
+    delegate?.addGoalViewController(self, didSaveGoal: goal)
+  }
   
   
   @objc func dateChange(datePicker: UIDatePicker) {
@@ -65,7 +87,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
   
   @objc func closePicker() {
-    categoryTextField.text = goals[currentIndex].title
+    categoryTextField.text = cg[currentIndex].title
     view.endEditing(true)
   }
   
@@ -74,7 +96,6 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     addTextField.becomeFirstResponder()
     Utilities.styleFilledButton(addButton)
-
   }
   
   
@@ -84,18 +105,18 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   
   
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return goals.count
+    return cg.count
   }
   
   
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return goals[row].title
+    return cg[row].title
   }
   
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     currentIndex = row
-    categoryTextField.text = goals[row].title
+    categoryTextField.text = cg[row].title
   }
   
   

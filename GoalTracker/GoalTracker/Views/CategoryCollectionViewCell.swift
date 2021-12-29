@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalsViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
 
   
   @IBOutlet weak var goalImage: UIImageView!
@@ -16,12 +16,11 @@ class GoalsViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
       
-      goalTitle.layer.cornerRadius = 10
-    
+      goalImage.layer.cornerRadius = 20
       
     }
   
-  func setup(with goal: Goal) {
+  func setup(with goal: Category) {
     goalImage.image = goal.image
     goalTitle.text = goal.title
   }

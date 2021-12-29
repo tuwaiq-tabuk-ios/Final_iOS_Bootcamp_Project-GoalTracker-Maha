@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3109350F2767BE590063B2DF /* choosing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3109350E2767BE590063B2DF /* choosing.png */; };
+		310C49CF277B4BAF00A68519 /* draw.png in Resources */ = {isa = PBXBuildFile; fileRef = 310C49CE277B4BAF00A68519 /* draw.png */; };
 		3117635927692FEB001728B6 /* DrawKit Vector Illustration Black Friday & Online Shopping.ai in Resources */ = {isa = PBXBuildFile; fileRef = 3117635827692FEB001728B6 /* DrawKit Vector Illustration Black Friday & Online Shopping.ai */; };
-		312DD9FE2769E34300175014 /* GoalsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312DD9FC2769E34300175014 /* GoalsViewCell.swift */; };
 		314F1B5927690E20003AE91C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 314F1B5827690E20003AE91C /* GoogleService-Info.plist */; };
+		317C86A5277B77AC00B85F83 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A4277B77AC00B85F83 /* Goals.swift */; };
+		317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */; };
+		317C86A9277B7C0C00B85F83 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */; };
 		317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D35E8276A0A02001B0C72 /* JournalViewController.swift */; };
-		318E75B92770B80C00F4B61F /* SecCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E75B82770B80C00F4B61F /* SecCalendarViewController.swift */; };
 		31AA161D277B304F0051853A /* think.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AA161C277B304F0051853A /* think.png */; };
 		31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7B72767544500E38D0E /* AppDelegate.swift */; };
 		31B1B7BA2767544500E38D0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7B92767544500E38D0E /* SceneDelegate.swift */; };
@@ -27,7 +29,7 @@
 		31B1B7DA2767546F00E38D0E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D82767546F00E38D0E /* Utilities.swift */; };
 		31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */; };
 		31C04512277996EA00FAEEB0 /* GoalCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */; };
-		31C045142779A0EB00FAEEB0 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C045132779A0EB00FAEEB0 /* Goals.swift */; };
+		31C045142779A0EB00FAEEB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C045132779A0EB00FAEEB0 /* Category.swift */; };
 		31DD82B4277B00F200CE7A4C /* AddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD82B3277B00F200CE7A4C /* AddGoalViewController.swift */; };
 		31E013872770A4350023231F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E013862770A4350023231F /* CalendarViewController.swift */; };
 		31E9A4082773090B0021D795 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A4072773090B0021D795 /* Checkbox.swift */; };
@@ -43,11 +45,13 @@
 
 /* Begin PBXFileReference section */
 		3109350E2767BE590063B2DF /* choosing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choosing.png; sourceTree = "<group>"; };
+		310C49CE277B4BAF00A68519 /* draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw.png; sourceTree = "<group>"; };
 		3117635827692FEB001728B6 /* DrawKit Vector Illustration Black Friday & Online Shopping.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DrawKit Vector Illustration Black Friday & Online Shopping.ai"; sourceTree = "<group>"; };
-		312DD9FC2769E34300175014 /* GoalsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewCell.swift; sourceTree = "<group>"; };
 		314F1B5827690E20003AE91C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		317C86A4277B77AC00B85F83 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
 		317D35E8276A0A02001B0C72 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
-		318E75B82770B80C00F4B61F /* SecCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecCalendarViewController.swift; sourceTree = "<group>"; };
 		31AA161C277B304F0051853A /* think.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = think.png; sourceTree = "<group>"; };
 		31B1B7B42767544500E38D0E /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B1B7B72767544500E38D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		31B1B7D82767546F00E38D0E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCategoryViewController.swift; sourceTree = "<group>"; };
-		31C045132779A0EB00FAEEB0 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		31C045132779A0EB00FAEEB0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		31DD82B3277B00F200CE7A4C /* AddGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGoalViewController.swift; sourceTree = "<group>"; };
 		31E013862770A4350023231F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		31E9A4072773090B0021D795 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -115,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				31E013862770A4350023231F /* CalendarViewController.swift */,
-				318E75B82770B80C00F4B61F /* SecCalendarViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				31AA161C277B304F0051853A /* think.png */,
+				310C49CE277B4BAF00A68519 /* draw.png */,
 				3109350E2767BE590063B2DF /* choosing.png */,
 				3117635827692FEB001728B6 /* DrawKit Vector Illustration Black Friday & Online Shopping.ai */,
 			);
@@ -144,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				31E9A40F27730A600021D795 /* Todo.swift */,
-				31C045132779A0EB00FAEEB0 /* Goals.swift */,
+				31C045132779A0EB00FAEEB0 /* Category.swift */,
+				317C86A4277B77AC00B85F83 /* Goals.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,8 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				31B1B7CB2767546500E38D0E /* Main.storyboard */,
+				317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */,
 				31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */,
-				312DD9FC2769E34300175014 /* GoalsViewCell.swift */,
+				317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,13 +186,13 @@
 		31B1B7B62767544500E38D0E /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				311750D12771AE740019C670 /* Models */,
 				312DDA002769E4BB00175014 /* Views */,
 				31B1B7CD2767546900E38D0E /* Controllers */,
-				311750D12771AE740019C670 /* Models */,
 				31B1B7D62767546F00E38D0E /* Helpers */,
-				31B1B7C02767544600E38D0E /* Assets.xcassets */,
 				3109350D2767BDB80063B2DF /* Images */,
 				31E9A41127731A190021D795 /* Support */,
+				31B1B7C02767544600E38D0E /* Assets.xcassets */,
 				31B1B7C22767544600E38D0E /* LaunchScreen.storyboard */,
 				314F1B5827690E20003AE91C /* GoogleService-Info.plist */,
 				31B1B7C52767544600E38D0E /* Info.plist */,
@@ -321,6 +327,7 @@
 				31AA161D277B304F0051853A /* think.png in Resources */,
 				314F1B5927690E20003AE91C /* GoogleService-Info.plist in Resources */,
 				3117635927692FEB001728B6 /* DrawKit Vector Illustration Black Friday & Online Shopping.ai in Resources */,
+				310C49CF277B4BAF00A68519 /* draw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,14 +381,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B1B7D52767546900E38D0E /* LoginViewController.swift in Sources */,
-				31C045142779A0EB00FAEEB0 /* Goals.swift in Sources */,
+				31C045142779A0EB00FAEEB0 /* Category.swift in Sources */,
 				317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */,
 				31E9A4082773090B0021D795 /* Checkbox.swift in Sources */,
+				317C86A9277B7C0C00B85F83 /* GoalsTableViewCell.swift in Sources */,
 				31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */,
+				317C86A5277B77AC00B85F83 /* Goals.swift in Sources */,
 				31B1B7D32767546900E38D0E /* MainViewController.swift in Sources */,
 				31F3862027789E82006F4306 /* DetailVC.swift in Sources */,
+				317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */,
 				31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */,
-				312DD9FE2769E34300175014 /* GoalsViewCell.swift in Sources */,
 				31DD82B4277B00F200CE7A4C /* AddGoalViewController.swift in Sources */,
 				31B1B7D22767546900E38D0E /* SignUpViewController.swift in Sources */,
 				31B1B7BA2767544500E38D0E /* SceneDelegate.swift in Sources */,
@@ -393,7 +402,6 @@
 				31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */,
 				31E9A40A277309820021D795 /* ToDoViewController.swift in Sources */,
 				31E9A40E277309CC0021D795 /* CheckTableViewCell.swift in Sources */,
-				318E75B92770B80C00F4B61F /* SecCalendarViewController.swift in Sources */,
 				31B1B7D92767546F00E38D0E /* Constants.swift in Sources */,
 				31E013872770A4350023231F /* CalendarViewController.swift in Sources */,
 				31E9A41027730A600021D795 /* Todo.swift in Sources */,

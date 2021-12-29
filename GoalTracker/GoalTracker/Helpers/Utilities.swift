@@ -12,7 +12,7 @@ class Utilities {
   
   static func styleTextField(_ textfield:UITextField) {
     
-    // Create the bottom line
+      // Create the bottom line
     let bottomLine = CALayer()
     
     bottomLine.frame = CGRect(x: 0, y: textfield.frame.height,

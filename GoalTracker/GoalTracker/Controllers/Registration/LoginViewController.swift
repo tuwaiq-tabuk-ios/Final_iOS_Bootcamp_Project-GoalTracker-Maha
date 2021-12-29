@@ -30,9 +30,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // hide error label
     errorLabel.alpha = 0
     emailTextField.becomeFirstResponder()
-    // style the elements
-    Utilities.styleTextField(emailTextField)
-    Utilities.styleTextField(passwordTextField)
+//    // style the elements
+//    Utilities.styleTextField(emailTextField)
+//    Utilities.styleTextField(passwordTextField)
     Utilities.styleFilledButton(logInButton)
     
   }
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       }
       else {
         
-        let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        let homeViewController = self.storyboard?.instantiateViewController(identifier:"HomeVC") 
         
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
