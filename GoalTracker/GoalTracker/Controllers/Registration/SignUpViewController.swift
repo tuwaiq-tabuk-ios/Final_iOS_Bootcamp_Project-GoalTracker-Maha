@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //    Utilities.styleTextField(lastNameTextField)
 //    Utilities.styleTextField(emailTextField)
 //    Utilities.styleTextField(passwordTextField)
-//    Utilities.styleFilledButton(signUpButton)
+    Utilities.styleFilledButton(signUpButton)
     
   }
   
