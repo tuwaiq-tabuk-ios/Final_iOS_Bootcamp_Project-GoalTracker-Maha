@@ -17,12 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     FirebaseApp.configure()
     
-    if let journal = fetchData() {
-      journalList = journal
-      
-    }else {
-      journalList = [String]()
-    }
     return true
   }
 
@@ -41,11 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    saveData(journalList: journalList!)
+   
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
-    saveData(journalList: journalList!)
+  
   }
 }
 

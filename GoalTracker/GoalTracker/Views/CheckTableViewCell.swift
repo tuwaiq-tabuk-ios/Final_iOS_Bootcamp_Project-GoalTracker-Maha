@@ -7,9 +7,11 @@
 
 import UIKit
 
+
 protocol CheckTableViewCellDelegate: AnyObject {
   func checkTableViewCell(_ cell: CheckTableViewCell, didChagneCheckedState checked: Bool)
 }
+
 
 class CheckTableViewCell: UITableViewCell {
 
@@ -24,15 +26,18 @@ class CheckTableViewCell: UITableViewCell {
     delegate?.checkTableViewCell(self, didChagneCheckedState: checkbox.checked)
   }
   
+  
   func set(title: String, checked: Bool) {
     label.text = title
     set(checked: checked)
   }
   
+  
   func set(checked: Bool) {
     checkbox.checked = checked
     updateChecked()
   }
+  
   
   private func updateChecked() {
     let attributedString = NSMutableAttributedString(string: label.text!)

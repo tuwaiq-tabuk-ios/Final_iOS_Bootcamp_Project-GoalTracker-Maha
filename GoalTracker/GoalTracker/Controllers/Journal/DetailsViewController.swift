@@ -7,25 +7,26 @@
 
 import UIKit
 
-class DetailVC: UIViewController {
+class DetailsViewController: UIViewController {
   
-  
-  
+  var titleText: String = ""
+  var date: String = ""
+  var body: String = ""
+
+    
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var bodyLabel: UILabel!
   
-  var titleText: String = ""
-  
-  
   override func viewWillAppear(_ animated: Bool) {
-      titleLabel.text = titleText
+  
     }
   
   
   override func viewDidLoad() {
       super.viewDidLoad()
-  
-    }
+ 
+  }
   
 }
+

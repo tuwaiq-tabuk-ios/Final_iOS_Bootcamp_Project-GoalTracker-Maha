@@ -7,22 +7,27 @@
 
 import UIKit
 
+protocol AddJournal {
+  func addJournal(title: String, date: String, body: String)
+}
+
 class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
   
   @IBOutlet weak var titleTextField: UITextField!
   @IBOutlet weak var dateText: UITextField!
-  @IBOutlet weak var journalTextField: UITextField!
+  @IBOutlet weak var journalTextView: UITextView!
   @IBOutlet weak var saveButton: UIButton!
   
   let datePicker = UIDatePicker()
+  var delegate: AddJournal?
+
   
     override func viewDidLoad() {
       super.viewDidLoad()
       
       setUpElement()
       createDatePicker()
-      
   }
   
   
@@ -63,13 +68,12 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
   
   @IBAction func savePressed(_ sender: UIButton) {
-    if (titleTextField.text != nil) && titleTextField.text != "" {
-      journalList?.append(titleTextField.text!)
-      titleTextField.text = ""
-
+    if titleTextField.text != "" {
+      delegate?.addJournal(title: titleTextField.text!, date: dateText.text!, body: journalTextView.text!)
+      navigationController?.popViewController(animated: true)
     }
   }
- 
+
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
@@ -77,13 +81,9 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
   
   func setUpElement() {
-    
     titleTextField.becomeFirstResponder()
-    journalTextField.borderStyle = .roundedRect
-          // style the elements
-//    Utilities.styleTextField(titleTextField)
-//    Utilities.styleTextField(journalTextField)
     Utilities.styleFilledButton(saveButton)
 
   }
 }
+

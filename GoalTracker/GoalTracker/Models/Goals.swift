@@ -11,15 +11,20 @@ struct Goal {
   
   let title: String
   let isComplete: Bool
+  let date: String
+  let category: String
   
-  init(title: String, isComplete: Bool = false) {
+  
+  init(title: String, isComplete: Bool = false, date: String, category: String) {
     self.title = title
     self.isComplete = isComplete
+    self.date = date
+    self.category = category
   }
   
   
   func completeToggled() -> Goal {
-    return Goal(title: title, isComplete: !isComplete)
+    return Goal(title: title, isComplete: !isComplete, date: date, category: category)
   }
   
 }

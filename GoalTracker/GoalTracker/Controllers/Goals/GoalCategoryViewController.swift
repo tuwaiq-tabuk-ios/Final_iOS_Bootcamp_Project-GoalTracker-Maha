@@ -19,6 +19,8 @@ class GoalCategoryViewController: UIViewController {
     addGoalVC?.delegate = addGoalDelegate
     return addGoalVC
   }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -44,6 +46,7 @@ extension GoalCategoryViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoalsViewCell", for: indexPath) as! CategoryCollectionViewCell
     cell.setup(with: cg[indexPath.row])
+    cell.layer.masksToBounds = true
     cell.layer.cornerRadius = 20
     return cell
   }

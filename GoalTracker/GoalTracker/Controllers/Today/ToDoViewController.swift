@@ -19,7 +19,6 @@ class ToDoViewController: UIViewController {
   }
   
 
-  
   @IBSegueAction func todoViewController(_ coder: NSCoder) -> AddTaskViewController? {
     let vc = AddTaskViewController(coder: coder)
     
@@ -60,14 +59,11 @@ extension ToDoViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
     return .delete
   }
-  
 }
-
 
 
 extension ToDoViewController: UITableViewDataSource {
 
-  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return todos.count
   }
@@ -77,13 +73,12 @@ extension ToDoViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "checked cell", for: indexPath) as! CheckTableViewCell
     
     cell.delegate = self
-    
     let todo = todos[indexPath.row]
-    
     cell.set(title: todo.title, checked: todo.isComplete)
     
     return cell
   }
+  
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
@@ -92,11 +87,11 @@ extension ToDoViewController: UITableViewDataSource {
     }
   }
   
+  
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     let todo = todos.remove(at: sourceIndexPath.row)
     todos.insert(todo, at: destinationIndexPath.row)
   }
-  
 }
 
 
@@ -134,9 +129,7 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
         self.tableView.reloadData()
       }
     }
-  
   }
-  
 }
 
 

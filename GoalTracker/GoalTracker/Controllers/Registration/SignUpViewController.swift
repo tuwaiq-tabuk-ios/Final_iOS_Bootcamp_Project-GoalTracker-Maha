@@ -31,11 +31,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // hide error label
     errorLabel.alpha = 0
     firstNameTextField.becomeFirstResponder()
-    // style the elements
-//    Utilities.styleTextField(firstNameTextField)
-//    Utilities.styleTextField(lastNameTextField)
-//    Utilities.styleTextField(emailTextField)
-//    Utilities.styleTextField(passwordTextField)
     Utilities.styleFilledButton(signUpButton)
     
   }

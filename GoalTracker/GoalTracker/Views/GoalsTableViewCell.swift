@@ -12,11 +12,13 @@ protocol GoalsTableViewCellDelegate: AnyObject {
   func goalsTableViewCell(_ cell: GoalsTableViewCell, didChagneCheckedState checked: Bool)
 }
 
+
 class GoalsTableViewCell: UITableViewCell {
 
-  
   @IBOutlet weak var goalLabel: UILabel!
   @IBOutlet weak var checkBox: Checkbox!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var categoryLabel: UILabel!
   
   weak var delegate: GoalsTableViewCellDelegate?
   
@@ -25,15 +27,20 @@ class GoalsTableViewCell: UITableViewCell {
     delegate?.goalsTableViewCell(self, didChagneCheckedState: checkBox.checked)
   }
   
-  func set(title: String, checked: Bool) {
+  
+  func set(title: String, checked: Bool, date: String, category: String) {
     goalLabel.text = title
+    dateLabel.text = date
+    categoryLabel.text = category
     set(checked: checked)
   }
+  
   
   func set(checked: Bool) {
     checkBox.checked = checked
     updateChecked()
   }
+  
   
   private func updateChecked() {
     let attributedString = NSMutableAttributedString(string: goalLabel.text!)
@@ -45,6 +52,7 @@ class GoalsTableViewCell: UITableViewCell {
     }
     
     goalLabel.attributedText = attributedString
+    
   }
 }
    

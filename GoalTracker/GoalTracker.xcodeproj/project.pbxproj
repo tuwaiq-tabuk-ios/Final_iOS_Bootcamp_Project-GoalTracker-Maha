@@ -37,9 +37,11 @@
 		31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40B277309990021D795 /* AddTaskViewController.swift */; };
 		31E9A40E277309CC0021D795 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */; };
 		31E9A41027730A600021D795 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A40F27730A600021D795 /* Todo.swift */; };
+		31EB917427817FA70014D168 /* CheckAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB917327817FA70014D168 /* CheckAlert.swift */; };
 		31F1A13427708F630007BC7C /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1A13327708F630007BC7C /* AddJournalViewController.swift */; };
-		31F3861E27788408006F4306 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3861D27788408006F4306 /* UserData.swift */; };
-		31F3862027789E82006F4306 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3861F27789E82006F4306 /* DetailVC.swift */; };
+		31F385D92780A17D005921A4 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F385D82780A17D005921A4 /* Journal.swift */; };
+		31F385DB2780A20C005921A4 /* JournalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F385DA2780A20C005921A4 /* JournalViewCell.swift */; };
+		31F3862027789E82006F4306 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F3861F27789E82006F4306 /* DetailsViewController.swift */; };
 		F4492C9A36E17931CF188B02 /* Pods_GoalTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D292D5E089784AA7C8F057D9 /* Pods_GoalTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,9 +78,11 @@
 		31E9A40B277309990021D795 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U0010CheckTableViewCell.swift"; sourceTree = "<group>"; };
 		31E9A40F27730A600021D795 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		31EB917327817FA70014D168 /* CheckAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAlert.swift; sourceTree = "<group>"; };
 		31F1A13327708F630007BC7C /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
-		31F3861D27788408006F4306 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		31F3861F27789E82006F4306 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		31F385D82780A17D005921A4 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		31F385DA2780A20C005921A4 /* JournalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewCell.swift; sourceTree = "<group>"; };
+		31F3861F27789E82006F4306 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		85275C8CFA577E958BE17631 /* Pods-GoalTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalTracker.debug.xcconfig"; path = "Target Support Files/Pods-GoalTracker/Pods-GoalTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CB1C05F73821E08ECFA0DEF6 /* Pods-GoalTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalTracker.release.xcconfig"; path = "Target Support Files/Pods-GoalTracker/Pods-GoalTracker.release.xcconfig"; sourceTree = "<group>"; };
 		D292D5E089784AA7C8F057D9 /* Pods_GoalTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,7 @@
 			children = (
 				31B1B7CF2767546900E38D0E /* MainViewController.swift */,
 				31B1B7CE2767546900E38D0E /* SignUpViewController.swift */,
+				31B1B7D02767546900E38D0E /* HomeViewController.swift */,
 				31B1B7D12767546900E38D0E /* LoginViewController.swift */,
 			);
 			path = Registration;
@@ -128,7 +133,7 @@
 			children = (
 				317D35E8276A0A02001B0C72 /* JournalViewController.swift */,
 				31F1A13327708F630007BC7C /* AddJournalViewController.swift */,
-				31F3861F27789E82006F4306 /* DetailVC.swift */,
+				31F3861F27789E82006F4306 /* DetailsViewController.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -150,6 +155,8 @@
 				31E9A40F27730A600021D795 /* Todo.swift */,
 				31C045132779A0EB00FAEEB0 /* Category.swift */,
 				317C86A4277B77AC00B85F83 /* Goals.swift */,
+				31F385D82780A17D005921A4 /* Journal.swift */,
+				31EB917327817FA70014D168 /* CheckAlert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 				317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */,
 				31E9A40D277309CC0021D795 /* CheckTableViewCell.swift */,
 				317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */,
+				31F385DA2780A20C005921A4 /* JournalViewCell.swift */,
+				31B1B7C22767544600E38D0E /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,7 +202,6 @@
 				3109350D2767BDB80063B2DF /* Images */,
 				31E9A41127731A190021D795 /* Support */,
 				31B1B7C02767544600E38D0E /* Assets.xcassets */,
-				31B1B7C22767544600E38D0E /* LaunchScreen.storyboard */,
 				314F1B5827690E20003AE91C /* GoogleService-Info.plist */,
 				31B1B7C52767544600E38D0E /* Info.plist */,
 			);
@@ -208,7 +216,6 @@
 				3101CE5A2774B11800B124A9 /* Calendar */,
 				3101CE5B2774B12C00B124A9 /* Journal */,
 				3101CE592774B0E100B124A9 /* Registration */,
-				31B1B7D02767546900E38D0E /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,7 +226,6 @@
 				31E9A4072773090B0021D795 /* Checkbox.swift */,
 				31B1B7D72767546F00E38D0E /* Constants.swift */,
 				31B1B7D82767546F00E38D0E /* Utilities.swift */,
-				31F3861D27788408006F4306 /* UserData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B1B7D52767546900E38D0E /* LoginViewController.swift in Sources */,
+				31F385D92780A17D005921A4 /* Journal.swift in Sources */,
 				31C045142779A0EB00FAEEB0 /* Category.swift in Sources */,
 				317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */,
 				31E9A4082773090B0021D795 /* Checkbox.swift in Sources */,
@@ -388,18 +395,19 @@
 				31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */,
 				317C86A5277B77AC00B85F83 /* Goals.swift in Sources */,
 				31B1B7D32767546900E38D0E /* MainViewController.swift in Sources */,
-				31F3862027789E82006F4306 /* DetailVC.swift in Sources */,
+				31F3862027789E82006F4306 /* DetailsViewController.swift in Sources */,
 				317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */,
 				31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */,
 				31DD82B4277B00F200CE7A4C /* AddGoalViewController.swift in Sources */,
 				31B1B7D22767546900E38D0E /* SignUpViewController.swift in Sources */,
+				31EB917427817FA70014D168 /* CheckAlert.swift in Sources */,
 				31B1B7BA2767544500E38D0E /* SceneDelegate.swift in Sources */,
 				31F1A13427708F630007BC7C /* AddJournalViewController.swift in Sources */,
 				31C04512277996EA00FAEEB0 /* GoalCategoryViewController.swift in Sources */,
-				31F3861E27788408006F4306 /* UserData.swift in Sources */,
 				31B1B7DA2767546F00E38D0E /* Utilities.swift in Sources */,
 				31B1B7D42767546900E38D0E /* HomeViewController.swift in Sources */,
 				31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */,
+				31F385DB2780A20C005921A4 /* JournalViewCell.swift in Sources */,
 				31E9A40A277309820021D795 /* ToDoViewController.swift in Sources */,
 				31E9A40E277309CC0021D795 /* CheckTableViewCell.swift in Sources */,
 				31B1B7D92767546F00E38D0E /* Constants.swift in Sources */,

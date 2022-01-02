@@ -9,7 +9,6 @@ import UIKit
 
 
 protocol AddGoalViewControllerDelegate: AnyObject {
-  
   func addGoalViewController(_ vc: AddGoalViewController, didSaveGoal goal: Goal)
 }
 
@@ -25,6 +24,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   
   let categoryPicker = UIPickerView()
   var currentIndex = 0
+  let datePicker = UIDatePicker()
   
   weak var delegate: AddGoalViewControllerDelegate?
 
@@ -60,14 +60,15 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     toolBar.setItems([buttonDone], animated: true)
     
     categoryTextField.inputAccessoryView = toolBar
-    dateTextField.inputAccessoryView = toolBar
     categoryTextField.textAlignment = .center
+    dateTextField.inputAccessoryView = toolBar
     dateTextField.textAlignment = .center
+    
     }
   
   
   @IBAction func save(_ sender: Any) {
-    let goal = Goal(title: addTextField.text!)
+    let goal = Goal(title: addTextField.text!, date: dateTextField.text!, category: categoryTextField.text!)
     delegate?.addGoalViewController(self, didSaveGoal: goal)
   }
   
@@ -80,7 +81,11 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   func formatDate(date: Date) -> String {
     
     let formatter = DateFormatter()
-    formatter.dateFormat = "MMM dd yy"
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .none
+    
+    self.view.endEditing(true)
+    self.dateTextField.text = formatter.string(from: datePicker.date)
     
     return formatter.string(from: date)
   }

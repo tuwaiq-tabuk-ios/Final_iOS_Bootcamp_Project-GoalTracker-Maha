@@ -11,6 +11,7 @@ struct Todo {
   
   let title: String
   let isComplete: Bool
+
   
   init(title: String, isComplete: Bool = false) {
     self.title = title
