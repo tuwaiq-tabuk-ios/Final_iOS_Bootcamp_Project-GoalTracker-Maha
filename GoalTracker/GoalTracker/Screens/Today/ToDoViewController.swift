@@ -7,17 +7,30 @@
 import Firebase
 import FirebaseFirestore
 import UIKit
+import FSCalendar
 
 
 class ToDoViewController: UIViewController {
   
   var todos = [Todo]()
-
+  var calendarHeightConstraint:NSLayoutConstraint!
+  
   @IBOutlet weak var tableView: UITableView!
+  
+  private var calendar: FSCalendar = {
+    let calendar = FSCalendar()
+    calendar.translatesAutoresizingMaskIntoConstraints = false
+    return calendar
+  }()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setConstraints()
+    calendar.delegate = self
+    calendar.dataSource = self
+    calendar.scope = .week
     let db = Firestore.firestore()
     
     db.collection("users").getDocuments() { (querySnapshot, err) in
@@ -30,7 +43,7 @@ class ToDoViewController: UIViewController {
         }
     }
   }
-  
+ 
 
   @IBSegueAction func todoViewController(_ coder: NSCoder) -> AddTaskViewController? {
     let vc = AddTaskViewController(coder: coder)
@@ -158,4 +171,32 @@ extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
     }
   }
   
+}
+
+
+extension ToDoViewController: FSCalendarDataSource, FSCalendarDelegate {
+  func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+    calendarHeightConstraint.constant = bounds.height
+    view.layoutIfNeeded()
+  }
+  
+}
+
+extension ToDoViewController {
+  
+  func setConstraints() {
+    view.addSubview(calendar)
+    
+    calendarHeightConstraint = NSLayoutConstraint(item: calendar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+    calendar.addConstraint(calendarHeightConstraint)
+    
+    
+    NSLayoutConstraint.activate([
+      calendar.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
+      calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+      calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+
+    ])
+    
+  }
 }
