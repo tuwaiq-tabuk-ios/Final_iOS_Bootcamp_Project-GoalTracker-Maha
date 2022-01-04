@@ -195,9 +195,9 @@
 		31B1B7B62767544500E38D0E /* GoalTracker */ = {
 			isa = PBXGroup;
 			children = (
+				31B1B7CD2767546900E38D0E /* Screens */,
 				311750D12771AE740019C670 /* Models */,
 				312DDA002769E4BB00175014 /* Views */,
-				31B1B7CD2767546900E38D0E /* Controllers */,
 				31B1B7D62767546F00E38D0E /* Helpers */,
 				3109350D2767BDB80063B2DF /* Images */,
 				31E9A41127731A190021D795 /* Support */,
@@ -208,16 +208,16 @@
 			path = GoalTracker;
 			sourceTree = "<group>";
 		};
-		31B1B7CD2767546900E38D0E /* Controllers */ = {
+		31B1B7CD2767546900E38D0E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				31C0450E2779950700FAEEB0 /* Goals */,
 				3101CE582774B0BA00B124A9 /* Today */,
+				31C0450E2779950700FAEEB0 /* Goals */,
 				3101CE5A2774B11800B124A9 /* Calendar */,
 				3101CE5B2774B12C00B124A9 /* Journal */,
 				3101CE592774B0E100B124A9 /* Registration */,
 			);
-			path = Controllers;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		31B1B7D62767546F00E38D0E /* Helpers */ = {
@@ -561,6 +561,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.6;
@@ -592,6 +593,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.6;

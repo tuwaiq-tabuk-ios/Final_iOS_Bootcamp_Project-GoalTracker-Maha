@@ -5,7 +5,9 @@
 //  Created by Maha S on 15/12/2021.
 //
 import Firebase
+import FirebaseFirestore
 import UIKit
+
 
 class ToDoViewController: UIViewController {
   
@@ -15,7 +17,18 @@ class ToDoViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   
+    
+    let db = Firestore.firestore()
+    
+    db.collection("users").getDocuments() { (querySnapshot, err) in
+        if let err = err {
+            print("Error getting documents: \(err)")
+        } else {
+            for document in querySnapshot!.documents {
+                print("\(document.documentID) => \(document.data())")
+            }
+        }
+    }
   }
   
 
@@ -91,6 +104,10 @@ extension ToDoViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
     let todo = todos.remove(at: sourceIndexPath.row)
     todos.insert(todo, at: destinationIndexPath.row)
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
 

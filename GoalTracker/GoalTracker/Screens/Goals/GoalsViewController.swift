@@ -38,6 +38,7 @@ class GoalsViewController: UIViewController {
     tableView.isEditing = !tableView.isEditing
   }
   
+  
   @IBSegueAction func addGaolCategory(_ coder: NSCoder, sender: Any?) -> GoalCategoryViewController? {
     let catVC = GoalCategoryViewController(coder: coder)
     catVC?.addGoalDelegate = self
@@ -130,7 +131,10 @@ extension GoalsViewController: GoalsTableViewCellDelegate {
       return
     }
     let goal = goals[indexPath.row]
-    let newGoal = Goal(title: goal.title, isComplete: checked, date: goal.date, category: goal.category)
+    let newGoal = Goal(title: goal.title,
+                       isComplete: checked,
+                       date: goal.date,
+                       category: goal.category)
     goals[indexPath.row] = newGoal
     
   }

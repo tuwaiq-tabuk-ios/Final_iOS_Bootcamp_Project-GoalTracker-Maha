@@ -24,14 +24,19 @@ class GoalCategoryViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.title = "Categories"
+    navigationItem.largeTitleDisplayMode = .never
     view.addSubview(collectionView)
 
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 16
+    layout.minimumInteritemSpacing = 16
+    layout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+    collectionView.collectionViewLayout = layout
   }
-  
 }
 
 
@@ -56,8 +61,9 @@ extension GoalCategoryViewController: UICollectionViewDataSource {
 extension GoalCategoryViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-    return CGSize(width: collectionView.frame.width/2.1, height: collectionView.frame.width/2.1)
+    let availableWidth: CGFloat = (collectionView.bounds.width - 16*3)
+    let width: CGFloat = availableWidth / 2
+    return CGSize(width: width, height: width)
   }
 }
 

@@ -15,7 +15,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
  
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -26,6 +26,25 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     tableView.reloadData()
   }
   
+  
+  @IBSegueAction func addTitle(_ coder: NSCoder) -> AddJournalViewController? {
+    let aT = AddJournalViewController(coder: coder)
+    aT?.delegate = self
+    return aT
+  }
+  
+  
+  @IBSegueAction func addJournal(_ coder: NSCoder) -> DetailsViewController? {
+    let vc = DetailsViewController(coder: coder)
+
+        if let indexpath = tableView.indexPathForSelectedRow {
+          let journal = journals[indexpath.row]
+          vc?.journal = journal
+        }
+
+    return vc
+  }
+
   
   @IBAction func startEditing(_ sender: Any) {
     tableView.isEditing = !tableView.isEditing
@@ -52,7 +71,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     return cell
 }
-  
+ 
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
@@ -61,10 +80,37 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
   }
- 
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let vc = segue.destination as! AddJournalViewController
-    vc.delegate = self
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let journal = journals[indexPath.row]
+
+    print(journal)
+
+    
+    if let detailViewController: DetailsViewController = UIStoryboard.main.instantiate() {
+      detailViewController.titleText = journal.title
+      detailViewController.date = journal.date
+      detailViewController.body = journal.body
+      navigationController?.pushViewController(detailViewController, animated: true)
+    }
   }
  }
+
+
+extension UIStoryboard {
+  static var main: UIStoryboard {
+    return UIStoryboard(name: "Main", bundle: nil)
+  }
+  
+  func instantiate<T: UIViewController>() -> T? {
+    let viewController = instantiateViewController(withIdentifier: T.storyboardID) as? T
+    return viewController
+  }
+}
+
+
+extension UIViewController {
+  static var storyboardID: String {
+    return String(describing: self)
+  }
+}

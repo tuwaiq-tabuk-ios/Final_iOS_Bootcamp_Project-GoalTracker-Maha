@@ -62,13 +62,19 @@ class MyAlert{
     alertView.addSubview(titleLabel)
 
 
-    let button = UIButton(frame: CGRect(x: 0,
-                                        y: alertView.frame.size.height-50,
-                                        width: alertView.frame.size.width,
-                                        height: 50))
+    let button = UIButton(frame: CGRect(x: 20,
+                                        y: alertView.frame.size.height-60,
+                                        width: 270,
+                                        height: 40))
 
     button.setTitle("Dismiss", for: .normal)
     button.setTitleColor(.link, for: .normal)
+    button.layer.borderColor = UIColor.systemGray5.cgColor
+    button.layer.borderWidth = 1
+    button.layer.cornerRadius = 12
+    button.backgroundColor = .systemGray5
+    
+    
     button.addTarget(self,
                      action: #selector(dismissAlert),
                      for: .touchUpInside)
@@ -76,9 +82,9 @@ class MyAlert{
 
 
     let messageLabel = UILabel(frame: CGRect(x: 0,
-                                             y: 80,
+                                             y: 70,
                                              width: alertView.frame.size.width,
-                                             height: 100))
+                                             height: 80))
     messageLabel.text = message
     messageLabel.textAlignment = .center
     messageLabel.numberOfLines = 0

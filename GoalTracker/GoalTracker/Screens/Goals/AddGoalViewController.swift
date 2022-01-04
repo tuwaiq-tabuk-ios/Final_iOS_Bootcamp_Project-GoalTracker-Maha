@@ -51,6 +51,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     dateTextField.inputView = datePicker
     dateTextField.text = formatDate(date: Date())
     
+    
     let toolBar = UIToolbar()
     toolBar.sizeToFit()
     let buttonDone = UIBarButtonItem(title: "Done",
@@ -70,6 +71,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   @IBAction func save(_ sender: Any) {
     let goal = Goal(title: addTextField.text!, date: dateTextField.text!, category: categoryTextField.text!)
     delegate?.addGoalViewController(self, didSaveGoal: goal)
+    navigationController?.popToRootViewController(animated: true)
   }
   
   

@@ -5,10 +5,10 @@
 //  Created by Maha S on 15/12/2021.
 //
 import Firebase
+import FirebaseFirestore
 import UIKit
 
 protocol AddTaskViewControllerDelegate: AnyObject {
-  
   func todoViewController(_ vc: AddTaskViewController, didSaveTodo todo: Todo)
 }
 
@@ -44,6 +44,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
   @IBAction func save(_ sender: Any) {
     let todo = Todo(title: textfield.text!)
     delegate?.todoViewController(self, didSaveTodo: todo)
+    navigationController?.popViewController(animated: true)
   }
   
   

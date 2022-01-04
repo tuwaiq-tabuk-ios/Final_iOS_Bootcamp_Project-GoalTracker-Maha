@@ -22,7 +22,9 @@ let cg: [Category] = [
   Category(title: "Lifestyle", image: UIImage(named: "LifeStyle")!),
   Category(title: "Reading", image: UIImage(named: "Reading")!),
   Category(title: "Meditation", image: UIImage(named: "Meditation")!),
-  Category(title: "Working out", image: UIImage(named: "Workingout")!)
+  Category(title: "Working out", image: UIImage(named: "Workingout")!),
+  Category(title: "Other Goals", image: UIImage(named: "OtherGoals")!),
+  Category(title: "Custom Category", image: UIImage(named: "CustomCategory")!)
 ]
 
 

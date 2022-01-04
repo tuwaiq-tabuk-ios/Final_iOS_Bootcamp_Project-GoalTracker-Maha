@@ -44,7 +44,7 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
     
   }
   
-  
+ 
   func createDatePicker() {
     datePicker.preferredDatePickerStyle = .wheels
     datePicker.datePickerMode = .date
@@ -83,7 +83,13 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   func setUpElement() {
     titleTextField.becomeFirstResponder()
     Utilities.styleFilledButton(saveButton)
-
+  }
+  
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let destination = segue.destination as? DetailsViewController {
+      destination.titleText = titleTextField.text!
+    }
   }
 }
 

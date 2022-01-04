@@ -16,9 +16,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
       
+      goalImage.contentMode = .scaleAspectFill
       goalImage.layer.masksToBounds = true
       goalImage.layer.cornerRadius = 20
-      
+      goalImage.layer.cornerCurve = .continuous
     }
   
   func setup(with goal: Category) {
