@@ -21,7 +21,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   @IBOutlet weak var categoryTextField: UITextField!
   @IBOutlet weak var addButton: UIButton!
   
-  
+  var selectedCategory: String?
   let categoryPicker = UIPickerView()
   var currentIndex = 0
   let datePicker = UIDatePicker()
@@ -33,7 +33,15 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   override func viewDidLoad() {
       super.viewDidLoad()
     
+    navigationItem.title = "Add Goal"
+    navigationItem.largeTitleDisplayMode = .never
+
+    if let selectedCategory = selectedCategory {
+      categoryTextField.text = selectedCategory
+    }
+    
     addTextField.text = goal?.title
+    
     
     setUpElement()
     
@@ -69,9 +77,12 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   
   
   @IBAction func save(_ sender: Any) {
-    let goal = Goal(title: addTextField.text!, date: dateTextField.text!, category: categoryTextField.text!)
-    delegate?.addGoalViewController(self, didSaveGoal: goal)
+    let title = addTextField.text ?? ""
+    let date = Date().timeIntervalSince1970
+    let category = categoryTextField.text ?? ""
+    let goal = Goal(title: title, date: date, category: category)
     navigationController?.popToRootViewController(animated: true)
+    delegate?.addGoalViewController(self, didSaveGoal: goal)
   }
   
   
@@ -102,6 +113,9 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   func setUpElement() {
     
     addTextField.becomeFirstResponder()
+    Utilities.styleTextField(addTextField)
+    Utilities.styleTextField(dateTextField)
+    Utilities.styleTextField(categoryTextField)
     Utilities.styleFilledButton(addButton)
   }
   

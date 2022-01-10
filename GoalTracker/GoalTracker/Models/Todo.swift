@@ -10,7 +10,8 @@ import Foundation
 struct Todo {
   
   let title: String
-  let isComplete: Bool
+  var isComplete: Bool
+  var uuid = "1234"
 
   
   init(title: String, isComplete: Bool = false) {

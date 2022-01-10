@@ -22,17 +22,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
       setUpElement()
+      
     }
     
   
   func setUpElement() {
-    
     // hide error label
     errorLabel.alpha = 0
     emailTextField.becomeFirstResponder()
-//    // style the elements
-//    Utilities.styleTextField(emailTextField)
-//    Utilities.styleTextField(passwordTextField)
+    
+    Utilities.styleTextField(emailTextField)
+    Utilities.styleTextField(passwordTextField)
     Utilities.styleFilledButton(logInButton)
     
   }
@@ -45,21 +45,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     
-    // Signing in the user
-    Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+    let loadingViewController: LoadingViewController = .init()
+    present(loadingViewController, animated: true) {
       
-      if error != nil {
-        // Couldn't sign in
-        self.errorLabel.text = error!.localizedDescription
-        self.errorLabel.alpha = 1
+      // Signing in the user
+      Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        loadingViewController.dismiss(animated: true) {
+          if error != nil {
+            // Couldn't sign in
+            self.errorLabel.text = error!.localizedDescription
+            self.errorLabel.alpha = 1
+          }
+          else {
+            
+            let homeViewController = self.storyboard?.instantiateViewController(identifier:"HomeVC")
+            
+            self.view.window?.rootViewController = homeViewController
+            self.view.window?.makeKeyAndVisible()
+          }
+        }
       }
-      else {
-        
-        let homeViewController = self.storyboard?.instantiateViewController(identifier:"HomeVC") 
-        
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
-      }
+      
     }
     
     

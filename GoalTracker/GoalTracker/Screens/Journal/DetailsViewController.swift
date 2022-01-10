@@ -8,28 +8,30 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
-  var titleText: String?
-  var date: String?
-  var body: String?
   
   var journal: Journal?
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var bodyLabel: UILabel!
+  @IBOutlet weak var bodyText: UITextView!
   
 
   override func viewWillAppear(_ animated: Bool) {
-    titleLabel.text = titleText
-    dateLabel.text = date
-    bodyLabel.text = body
-
+    super.viewWillAppear(animated)
+    
+    titleLabel.text = journal?.title
+    bodyText.text = journal?.body
+    if let timeInterval = journal?.date {
+      let date = Date(timeIntervalSince1970: timeInterval)
+      dateLabel.text = Formatter.mmmddYYYYDateFormatter.string(from: date)
     }
+    
+  }
 
 
   override func viewDidLoad() {
       super.viewDidLoad()
+    bodyText.layer.cornerRadius = 10
     
     navigationItem.title = "Journals"
     navigationItem.largeTitleDisplayMode = .never

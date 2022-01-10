@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+
 class SignUpViewController: UIViewController, UITextFieldDelegate {
   
   
@@ -24,13 +25,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     super.viewDidLoad()
     
     setUpElement()
+
   }
   
   
   func setUpElement() {
-    // hide error label
     errorLabel.alpha = 0
     firstNameTextField.becomeFirstResponder()
+    
+    Utilities.styleTextField(firstNameTextField)
+    Utilities.styleTextField(lastNameTextField)
+    Utilities.styleTextField(emailTextField)
+    Utilities.styleTextField(passwordTextField)
     Utilities.styleFilledButton(signUpButton)
     
   }
@@ -52,7 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     if Utilities.isPasswordValid(cleanedPassword) == false {
       // Password isn't secure enough
-      return "Please make sure your password is at least 8 characters, contains a special character and a number."
+      return "Incorrect password."
     }
     
     return nil

@@ -11,15 +11,21 @@ class GoalCategoryViewController: UIViewController {
   
   
   @IBOutlet weak var collectionView: UICollectionView!
+  private var selectedCategory: String?
   weak var addGoalDelegate: AddGoalViewControllerDelegate?
   
   
   @IBSegueAction func addGaol(_ coder: NSCoder, sender: Any?) -> AddGoalViewController? {
     let addGoalVC = AddGoalViewController(coder: coder)
+    addGoalVC?.selectedCategory = selectedCategory
     addGoalVC?.delegate = addGoalDelegate
     return addGoalVC
   }
   
+  override func performSegue(withIdentifier identifier: String, sender: Any?) {
+    
+    return
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -71,6 +77,12 @@ extension GoalCategoryViewController: UICollectionViewDelegateFlowLayout {
 extension GoalCategoryViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print(cg[indexPath.row].title)
+    selectedCategory = cg[indexPath.row].title
+    
+    if let addGoalVC: AddGoalViewController = UIStoryboard.main.instantiate() {
+      addGoalVC.selectedCategory = selectedCategory
+      addGoalVC.delegate = addGoalDelegate
+      navigationController?.pushViewController(addGoalVC, animated: true)
+    }
   }
 }

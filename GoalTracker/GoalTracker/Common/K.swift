@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct Constants {
+
+struct K {
     
     struct Storyboard {
-        
         static let homeViewController = "HomeVC"
         
     }
+  
+  struct Cells {
+    static let cellWithIdentifierCheckedCell = "checked cell"
+  }
   
 }

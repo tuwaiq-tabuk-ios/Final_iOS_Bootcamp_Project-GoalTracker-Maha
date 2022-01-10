@@ -5,32 +5,82 @@
 //  Created by Maha S on 15/12/2021.
 //
 import Firebase
-import FirebaseFirestore
 import UIKit
 import FSCalendar
-
+import UserNotifications
 
 class ToDoViewController: UIViewController {
   
   var todos = [Todo]()
-  var calendarHeightConstraint:NSLayoutConstraint!
+  var calendarHeightConstraint: NSLayoutConstraint!
+  let db = Firestore.firestore()
+  var ref: CollectionReference!
   
   @IBOutlet weak var tableView: UITableView!
-  
-  private var calendar: FSCalendar = {
-    let calendar = FSCalendar()
-    calendar.translatesAutoresizingMaskIntoConstraints = false
-    return calendar
-  }()
+
+  private var calendar = FSCalendar()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setConstraints()
+    ref = db.collection("Tasks")
+
+    ref.getDocuments { snapshot, error in
+      if let error = error {
+        print(error)
+        return
+      }
+      
+      let documents = snapshot?.documents ?? []
+      var allTasks: [Todo] = []
+      for document in documents {
+        print(document.documentID, document.data())
+        let data = document.data()
+        let title = data["title"] as? String ?? ""
+        var todo = Todo(title: title)
+        todo.uuid = document.documentID
+        allTasks.append(todo)
+      }
+
+      self.tableView.reloadData()
+      
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          }
+    
+    
+    let center = UNUserNotificationCenter.current()
+    
+    center.requestAuthorization(options: [.alert, .badge, .sound])
+    { granted, error in
+      
+    }
+    
+    let content = UNMutableNotificationContent()
+    content.title = "Hey"
+    content.body = "Don't forget to finish your tasks for today!"
+    
+    let date = Date().addingTimeInterval(5)
+    
+    let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+    
+    let uuidString = UUID().uuidString
+    
+    let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+    
+    center.add(request) { error in
+      // check the error parameter and handle any errors
+    }
+    
+    setCalendarConstraints()
+    
     calendar.delegate = self
     calendar.dataSource = self
-    calendar.scope = .week
+    
     let db = Firestore.firestore()
     
     db.collection("users").getDocuments() { (querySnapshot, err) in
@@ -61,9 +111,15 @@ class ToDoViewController: UIViewController {
 }
 
 
+
+// MARK: - Table delegate
+
 extension ToDoViewController: UITableViewDelegate {
   
-  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+  func tableView(
+    _ tableView: UITableView,
+    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
     
     let action = UIContextualAction(style: .normal, title: "Complete") { action, view, complete in
       
@@ -82,21 +138,31 @@ extension ToDoViewController: UITableViewDelegate {
   }
   
   
-  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+  func tableView(
+    _ tableView: UITableView,
+    editingStyleForRowAt indexPath: IndexPath
+  ) -> UITableViewCell.EditingStyle {
     return .delete
   }
 }
 
 
+
+// MARK: - Table data source
+
 extension ToDoViewController: UITableViewDataSource {
 
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView,
+                 numberOfRowsInSection section: Int) -> Int {
     return todos.count
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  
+  func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "checked cell", for: indexPath) as! CheckTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.cellWithIdentifierCheckedCell,
+                                             for: indexPath) as! CheckTableViewCell
     
     cell.delegate = self
     let todo = todos[indexPath.row]
@@ -106,7 +172,9 @@ extension ToDoViewController: UITableViewDataSource {
   }
   
   
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView,
+                 commit editingStyle: UITableViewCell.EditingStyle,
+                 forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       todos.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -114,12 +182,17 @@ extension ToDoViewController: UITableViewDataSource {
   }
   
   
-  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+  func tableView(_ tableView: UITableView,
+                 moveRowAt sourceIndexPath: IndexPath,
+                 to destinationIndexPath: IndexPath) {
     let todo = todos.remove(at: sourceIndexPath.row)
+    
     todos.insert(todo, at: destinationIndexPath.row)
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  
+  func tableView(_ tableView: UITableView,
+                 didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }
@@ -146,7 +219,6 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
   func todoViewController(_ vc: AddTaskViewController, didSaveTodo todo: Todo) {
     
     
-    
     dismiss(animated: true) {
       if let indexPath = self.tableView.indexPathForSelectedRow {
         // update
@@ -163,6 +235,7 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
 }
 
 
+
 extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
   
   func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
@@ -174,29 +247,51 @@ extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
 }
 
 
-extension ToDoViewController: FSCalendarDataSource, FSCalendarDelegate {
-  func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+
+// MARK: - Calendar data source and delegate
+
+extension ToDoViewController: FSCalendarDataSource,
+                                FSCalendarDelegate {
+  
+  func calendar(_ calendar: FSCalendar,
+                boundingRectWillChange bounds: CGRect,
+                animated: Bool) {
     calendarHeightConstraint.constant = bounds.height
+    
     view.layoutIfNeeded()
   }
   
 }
 
+
+
+// MARK: - Setup calendar
+
 extension ToDoViewController {
   
-  func setConstraints() {
+  func setCalendarConstraints() {
     view.addSubview(calendar)
     
-    calendarHeightConstraint = NSLayoutConstraint(item: calendar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+    calendarHeightConstraint = NSLayoutConstraint(item: calendar,
+                                                  attribute: .height,
+                                                  relatedBy: .equal,
+                                                  toItem: nil,
+                                                  attribute: .notAnAttribute,
+                                                  multiplier: 1,
+                                                  constant: 200)
     calendar.addConstraint(calendarHeightConstraint)
     
     
     NSLayoutConstraint.activate([
-      calendar.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
-      calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-      calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
-
+      calendar.topAnchor
+        .constraint(equalTo: view.topAnchor, constant: 90),
+      calendar.leadingAnchor
+        .constraint(equalTo: view.leadingAnchor, constant: 0),
+      calendar.trailingAnchor
+        .constraint(equalTo: view.trailingAnchor, constant: 0)
     ])
     
+    calendar.translatesAutoresizingMaskIntoConstraints = false
+    calendar.scope = .week
   }
 }
