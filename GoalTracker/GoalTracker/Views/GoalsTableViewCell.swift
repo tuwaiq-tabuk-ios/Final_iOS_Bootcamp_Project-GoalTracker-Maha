@@ -28,13 +28,19 @@ class GoalsTableViewCell: UITableViewCell {
   }
   
   
-  func set(title: String, checked: Bool, date: String, category: String) {
+  func set(title: String, checked: Bool, date: Double, category: String) {
     goalLabel.text = title
-    dateLabel.text = date
+    dateLabel.text = "date"
     categoryLabel.text = category
     set(checked: checked)
   }
   
+  func bind(_ goal: Goal) {
+    goalLabel.text = goal.title
+    dateLabel.text = goal.formattedDate
+    categoryLabel.text = goal.category
+    set(checked: goal.isComplete)
+  }
   
   func set(checked: Bool) {
     checkBox.checked = checked

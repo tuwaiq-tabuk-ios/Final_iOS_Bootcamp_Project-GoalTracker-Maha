@@ -57,6 +57,7 @@ class MyAlert{
                                            width: alertView.frame.size.width,
                                            height: 80))
     titleLabel.text = title
+    titleLabel.textColor = .black
     titleLabel.font = .systemFont(ofSize: 25)
     titleLabel.textAlignment = .center
     alertView.addSubview(titleLabel)
@@ -86,6 +87,7 @@ class MyAlert{
                                              width: alertView.frame.size.width,
                                              height: 80))
     messageLabel.text = message
+    messageLabel.textColor = .black
     messageLabel.textAlignment = .center
     messageLabel.numberOfLines = 0
     alertView.addSubview(messageLabel)

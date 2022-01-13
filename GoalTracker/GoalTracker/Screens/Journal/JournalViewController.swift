@@ -6,10 +6,22 @@
 //
 
 import UIKit
+import Firebase
+
+class Formatter {
+  static var mmmddYYYYDateFormatter: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM dd, YYYY"
+    return formatter
+  }
+}
+
 
 class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddJournal {
 
   var journals = [Journal]()
+  let db = Firestore.firestore()
+  var ref: CollectionReference!
   
   @IBOutlet weak var tableView: UITableView!
  
@@ -18,6 +30,49 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     tableView.delegate = self
     tableView.dataSource = self
+    
+   
+    ref = db.collection("journal")
+
+    ref.getDocuments { snapshot, error in
+      if let error = error {
+        print(error)
+        return
+      }
+      
+      let documents = snapshot?.documents ?? []
+      var allJournals: [Journal] = []
+      for document in documents {
+        print(document.documentID, document.data())
+        let data = document.data()
+        let title = data["title"] as? String ?? ""
+        let date = data["createdDate"] as? Double ?? 0.0
+        let body = data["body"] as? String ?? ""
+        let journal = Journal(title: title, date: date, body: body)
+        journal.uuid = document.documentID
+        allJournals.append(journal)
+      }
+
+      self.journals = allJournals.sorted(by: { $0.date < $1.date })
+      self.tableView.reloadData()
+      
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          }
+        }
+      
+  
+  func deleteJournal(_ journal: Journal, completion: ((Error?) -> Void)?) {
+    let deletionID = journal.uuid
+    self.ref.document(deletionID).delete { error in
+      if let error = error {
+        completion?(error)
+        return
+      }
+      
+      completion?(nil)
+    }
   }
   
   
@@ -46,14 +101,19 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   }
 
   
-  @IBAction func startEditing(_ sender: Any) {
-    tableView.isEditing = !tableView.isEditing
-  }
-  
-  
-  func addJournal(title: String, date: String, body: String) {
-    journals.append(Journal(title: title, date: date, body: body))
-    tableView.reloadData()
+  func addJournal(title: String, date: Double, body: String) {
+    let journal = Journal(title: title, date: date, body: body)
+    ref.addDocument(data: ["title": journal.title, "createdDate": journal.date, "body": journal.body]) { error in
+      if let error  = error {
+        print(error)
+        return
+      }
+      
+      print("Successs")
+      self.journals.insert(journal, at: 0)
+      self.tableView.reloadData()
+    }
+    
   }
   
   
@@ -64,11 +124,10 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath) as! JournalViewCell
-    
-    cell.titleLabel.text = journals[indexPath.row].title
-    cell.dateLabel.text = journals[indexPath.row].date
-    cell.bodyLabel.text = journals[indexPath.row].body
-    
+    let journal = journals[indexPath.row]
+    cell.titleLabel.text = journal.title
+    cell.bodyLabel.text = journal.body
+    cell.dateLabel.text = journal.formattedDate
     return cell
 }
  
@@ -76,25 +135,40 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
     if editingStyle == .delete {
-      journals.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .automatic)
+      let journal = journals[indexPath.row]
+      let cancelaction = UIAlertAction(title: "Cancel", style: .cancel
+                                       , handler: nil)
+      let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+        deleteJournal(journal) { [weak self] error in
+          guard let self = self else { return }
+          if let error = error {
+            print(error) // Show user error
+            return
+          }
+          
+          self.journals.remove(at: indexPath.row)
+          self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+      }
+      
+      let alertController = UIAlertController(title: "Warning", message: "Would you like to delete this Journal now?", preferredStyle: .actionSheet)
+      alertController.addAction(cancelaction)
+      alertController.addAction(deleteAction)
+      present(alertController, animated: true, completion: nil)
+      
     }
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let journal = journals[indexPath.row]
 
-    print(journal)
-
-    
     if let detailViewController: DetailsViewController = UIStoryboard.main.instantiate() {
-      detailViewController.titleText = journal.title
-      detailViewController.date = journal.date
-      detailViewController.body = journal.body
+      detailViewController.journal = journal
       navigationController?.pushViewController(detailViewController, animated: true)
     }
   }
  }
+
 
 
 extension UIStoryboard {
@@ -107,6 +181,7 @@ extension UIStoryboard {
     return viewController
   }
 }
+
 
 
 extension UIViewController {

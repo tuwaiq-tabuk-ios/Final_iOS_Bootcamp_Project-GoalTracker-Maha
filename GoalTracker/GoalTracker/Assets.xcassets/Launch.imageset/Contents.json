@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "7324056_ui_interface_correct_check_accept_icon.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

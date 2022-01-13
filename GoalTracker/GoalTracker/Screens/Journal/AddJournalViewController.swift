@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddJournal {
-  func addJournal(title: String, date: String, body: String)
+  func addJournal(title: String, date: Double, body: String)
 }
 
 class AddJournalViewController: UIViewController, UITextFieldDelegate {
@@ -28,6 +28,9 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
       
       setUpElement()
       createDatePicker()
+      navigationItem.title = "Add Entry"
+      navigationItem.largeTitleDisplayMode = .never
+      
   }
   
   
@@ -41,7 +44,6 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
     toolbar.setItems([doneButton], animated: true)
     
     return toolbar
-    
   }
   
  
@@ -69,7 +71,8 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
   @IBAction func savePressed(_ sender: UIButton) {
     if titleTextField.text != "" {
-      delegate?.addJournal(title: titleTextField.text!, date: dateText.text!, body: journalTextView.text!)
+      let date = datePicker.date.timeIntervalSince1970
+      delegate?.addJournal(title: titleTextField.text!, date: date, body: journalTextView.text!)
       navigationController?.popViewController(animated: true)
     }
   }
@@ -82,14 +85,17 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
   func setUpElement() {
     titleTextField.becomeFirstResponder()
+    Utilities.styleTextField(dateText)
+    Utilities.styleTextField(titleTextField)
+    journalTextView.layer.cornerRadius = 10
     Utilities.styleFilledButton(saveButton)
   }
   
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let destination = segue.destination as? DetailsViewController {
-      destination.titleText = titleTextField.text!
-    }
-  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if let destination = segue.destination as? DetailsViewController {
+////      destination.titleText = titleTextField.text!
+//    }
+//  }
 }
 

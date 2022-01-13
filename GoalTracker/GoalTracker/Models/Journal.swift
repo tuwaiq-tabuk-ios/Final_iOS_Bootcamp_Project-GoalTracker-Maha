@@ -10,11 +10,16 @@ import UIKit
 class Journal {
   
   var title = ""
-  var date = ""
+  var date: Double = 0.0
   var body = ""
-
+  var uuid = "1234"
+  var formattedDate: String {
+    let date = Date(timeIntervalSince1970: self.date)
+    let formattedDate = Formatter.mmmddYYYYDateFormatter.string(from: date)
+    return formattedDate
+  }
   
-  convenience init(title: String, date: String, body: String) {
+  convenience init(title: String, date: Double, body: String) {
     self.init()
     self.title = title
     self.date = date
