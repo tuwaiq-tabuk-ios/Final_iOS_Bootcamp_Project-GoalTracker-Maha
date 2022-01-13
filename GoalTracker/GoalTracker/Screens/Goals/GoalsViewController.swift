@@ -22,7 +22,6 @@ class GoalsViewController: UIViewController {
   
   var goals = [Goal]()
   let customAlert = MyAlert()
-  
   let db = Firestore.firestore()
   var ref: CollectionReference!
   
@@ -37,7 +36,6 @@ class GoalsViewController: UIViewController {
   }
   
   
-  
   func deleteGoal(_ goal: Goal, completion: ((Error?) -> Void)?) {
     let deletionID = goal.uuid
     let loadingViewController: LoadingViewController = .init()
@@ -48,7 +46,6 @@ class GoalsViewController: UIViewController {
             completion?(error)
             return
           }
-          
           completion?(nil)
         }
       }
@@ -57,7 +54,6 @@ class GoalsViewController: UIViewController {
   
   
   @IBAction func didTapButton() {
-    
     customAlert.showAlert(with: "Congratulations🥳🎉!",
                           message: "You have reached your Goal.",
                           on: self)
@@ -96,11 +92,7 @@ class GoalsViewController: UIViewController {
 
 extension GoalsViewController {
   fileprivate func fetchGoals()  {
-//    FirebaseManager.shared.fetchGoals { result in
-//      if case let .success(goals) = result {
-//        self.goals = goals
-//      }
-//    }
+    
     let loadingView = LoadingView()
     loadingView.startAnimating()
     tableView.backgroundView = loadingView
@@ -148,6 +140,7 @@ extension GoalsViewController {
   }
 }
 
+
 // MARK: - UITableViewDelegate
 
 extension GoalsViewController: UITableViewDelegate {
@@ -170,6 +163,7 @@ extension GoalsViewController: UITableViewDelegate {
   }
 }
 
+
 // MARK: - UITableViewDataSource
 
 extension GoalsViewController: UITableViewDataSource {
@@ -182,14 +176,16 @@ extension GoalsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "GoalViewCell", for: indexPath) as! GoalsTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "GoalViewCell",
+                                             for: indexPath) as! GoalsTableViewCell
     let goal = goals[indexPath.row]
     cell.bind(goal)
     cell.delegate = self
     return cell
   }
   
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                 forRowAt indexPath: IndexPath) {
     
     if editingStyle == .delete {
       let goal = goals[indexPath.row]
@@ -214,7 +210,6 @@ extension GoalsViewController: UITableViewDataSource {
       alertController.addAction(cancelaction)
       alertController.addAction(deleteAction)
       present(alertController, animated: true, completion: nil)
-      
     }
   }
   
@@ -234,6 +229,7 @@ extension GoalsViewController: UITableViewDataSource {
   }
 }
 
+
 // MARK: - GoalsTableViewCellDelegate
 
 extension GoalsViewController: GoalsTableViewCellDelegate {
@@ -252,6 +248,7 @@ extension GoalsViewController: GoalsTableViewCellDelegate {
   }
 }
 
+
 // MARK: - AddGoalViewControllerDelegate
 
 extension GoalsViewController: AddGoalViewControllerDelegate {
@@ -265,6 +262,7 @@ extension GoalsViewController: AddGoalViewControllerDelegate {
     persistGoalToFireStore(goal)
   }
 }
+
 
 // MARK: - UIAdaptivePresentationControllerDelegate
 
@@ -287,6 +285,7 @@ struct MainThread {
     }
   }
 }
+
 
 final class LoadingView: UIView {
   

@@ -39,25 +39,6 @@ class ProfileViewController: UIViewController {
         }
       }
     }
-//    db.collection("users").whereField("uid", isEqualTo: uid)
-//      .addSnapshotListener { (querySnapshot, error) in
-//
-//        if let error = error {
-//          print("Error while fetching profile\(error)")
-//        } else {
-//          if let snapshotDocuments = querySnapshot?.documents {
-//            for doc in snapshotDocuments {
-//              let data = doc.data()
-//              let firstName = data["firstname"] as! String
-//              let lastName = data["lastname"] as! String
-//              self.firstName.text = firstName
-//              self.lastName.text = lastName
-//
-//              print(firstName)
-//            }
-//          }
-//        }
-//      }
   }
   
   
@@ -70,7 +51,6 @@ class ProfileViewController: UIViewController {
     } catch let signOutError as NSError {
       print("Error signing out: %@", signOutError)
     }
-
   }
   
     
@@ -80,9 +60,8 @@ class ProfileViewController: UIViewController {
     Utilities.styleFilledButton(logOut)
     
   }
-  
-  
 }
+
 
 final class FirebaseManager {
   enum FirebaseError: String, Error {
@@ -113,12 +92,7 @@ final class FirebaseManager {
         }
       }
   }
-  
-  // completion: (() -> Void)
-  // completion()
-  // completion: (() -> Void)?
-  // completion?()
-  // completion: ((Result<[Goal], Error>) -> Void)?
+ 
   func fetchGoals(_ completion: ((Result<[Goal], Error>) -> Void)?) {
     db.collection("Goals").getDocuments { snapshot, error in
       MainThread.run {

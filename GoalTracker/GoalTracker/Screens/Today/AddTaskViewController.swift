@@ -4,7 +4,7 @@
 //
 //  Created by Maha S on 15/12/2021.
 //
-import Firebase
+
 import UIKit
 
 protocol AddTaskViewControllerDelegate: AnyObject {
@@ -17,9 +17,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var done: UIButton!
   @IBOutlet weak var textfield: UITextField!
   
-  
   var todo: Todo?
-  
   weak var delegate: AddTaskViewControllerDelegate?
 
   override func viewDidLoad() {
@@ -34,7 +32,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
   
   func setUpElement() {
     textfield.becomeFirstResponder()
-    
     // style the elements
     Utilities.styleTextField(textfield)
     Utilities.styleFilledButton(done)

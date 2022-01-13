@@ -17,12 +17,10 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     
     setUpElements()
-  
   }
 
 
   func setUpElements() {
-    
     Utilities.styleFilledButton(signUpButton)
     Utilities.styleFilledButton(logInButton)
   }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3109350F2767BE590063B2DF /* choosing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3109350E2767BE590063B2DF /* choosing.png */; };
-		310C49CF277B4BAF00A68519 /* draw.png in Resources */ = {isa = PBXBuildFile; fileRef = 310C49CE277B4BAF00A68519 /* draw.png */; };
 		314F1B5927690E20003AE91C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 314F1B5827690E20003AE91C /* GoogleService-Info.plist */; };
 		317C86A5277B77AC00B85F83 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A4277B77AC00B85F83 /* Goals.swift */; };
 		317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */; };
@@ -29,8 +27,6 @@
 		31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */; };
 		31C04512277996EA00FAEEB0 /* GoalCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */; };
 		31C045142779A0EB00FAEEB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C045132779A0EB00FAEEB0 /* Category.swift */; };
-		31CB62042785FE8400A2C1ED /* SignUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CB62032785FE8400A2C1ED /* SignUp.png */; };
-		31CB62062785FE8D00A2C1ED /* Trythis.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CB62052785FE8D00A2C1ED /* Trythis.png */; };
 		31DD82B4277B00F200CE7A4C /* AddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DD82B3277B00F200CE7A4C /* AddGoalViewController.swift */; };
 		31E9A4082773090B0021D795 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A4072773090B0021D795 /* Checkbox.swift */; };
 		31E9A40A277309820021D795 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9A409277309820021D795 /* ToDoViewController.swift */; };
@@ -46,8 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3109350E2767BE590063B2DF /* choosing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choosing.png; sourceTree = "<group>"; };
-		310C49CE277B4BAF00A68519 /* draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw.png; sourceTree = "<group>"; };
 		314F1B5827690E20003AE91C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		317C86A4277B77AC00B85F83 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -70,8 +64,6 @@
 		31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCategoryViewController.swift; sourceTree = "<group>"; };
 		31C045132779A0EB00FAEEB0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		31CB62032785FE8400A2C1ED /* SignUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUp.png; sourceTree = "<group>"; };
-		31CB62052785FE8D00A2C1ED /* Trythis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trythis.png; sourceTree = "<group>"; };
 		31DD82B3277B00F200CE7A4C /* AddGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGoalViewController.swift; sourceTree = "<group>"; };
 		31E9A4072773090B0021D795 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		31E9A409277309820021D795 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
@@ -128,17 +120,6 @@
 				31F3861F27789E82006F4306 /* DetailsViewController.swift */,
 			);
 			path = Journal;
-			sourceTree = "<group>";
-		};
-		3109350D2767BDB80063B2DF /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				310C49CE277B4BAF00A68519 /* draw.png */,
-				31CB62032785FE8400A2C1ED /* SignUp.png */,
-				31CB62052785FE8D00A2C1ED /* Trythis.png */,
-				3109350E2767BE590063B2DF /* choosing.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		311750D12771AE740019C670 /* Models */ = {
@@ -199,7 +180,6 @@
 				311750D12771AE740019C670 /* Models */,
 				312DDA002769E4BB00175014 /* Views */,
 				31B1B7D62767546F00E38D0E /* Common */,
-				3109350D2767BDB80063B2DF /* Images */,
 				31E9A41127731A190021D795 /* Support */,
 				31B1B7C02767544600E38D0E /* Assets.xcassets */,
 				314F1B5827690E20003AE91C /* GoogleService-Info.plist */,
@@ -329,11 +309,7 @@
 				31B1B7C42767544600E38D0E /* LaunchScreen.storyboard in Resources */,
 				31B1B7C12767544600E38D0E /* Assets.xcassets in Resources */,
 				31B1B7CC2767546500E38D0E /* Main.storyboard in Resources */,
-				3109350F2767BE590063B2DF /* choosing.png in Resources */,
 				314F1B5927690E20003AE91C /* GoogleService-Info.plist in Resources */,
-				31CB62062785FE8D00A2C1ED /* Trythis.png in Resources */,
-				31CB62042785FE8400A2C1ED /* SignUp.png in Resources */,
-				310C49CF277B4BAF00A68519 /* draw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

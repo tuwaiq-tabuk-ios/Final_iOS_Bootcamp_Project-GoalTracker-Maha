@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Firebase
 
 struct Todo {
   
-  let title: String
+  var title: String
   var isComplete: Bool
   var uuid = "1234"
 
@@ -19,6 +20,19 @@ struct Todo {
     self.isComplete = isComplete
   }
   
+  
+  init(data: [String: Any]) {
+    title = data["title"] as? String ?? ""
+    isComplete = data["isComplete"] as? Bool ?? false
+   
+  }
+  
+  init(document: QueryDocumentSnapshot) {
+    let data = document.data()
+    title = data["title"] as? String ?? ""
+    isComplete = data["isComplete"] as? Bool ?? false
+    uuid = document.documentID
+  }
   
   func completeToggled() -> Todo {
     return Todo(title: title, isComplete: !isComplete)

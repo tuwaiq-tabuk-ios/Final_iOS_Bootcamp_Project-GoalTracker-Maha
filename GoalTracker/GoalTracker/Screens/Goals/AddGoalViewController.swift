@@ -130,12 +130,14 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   }
   
   
-  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
+                  forComponent component: Int) -> String? {
     return cg[row].title
   }
   
   
-  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int,
+                  inComponent component: Int) {
     currentIndex = row
     categoryTextField.text = cg[row].title
   }
@@ -144,6 +146,4 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
   }
-  
-  
 }

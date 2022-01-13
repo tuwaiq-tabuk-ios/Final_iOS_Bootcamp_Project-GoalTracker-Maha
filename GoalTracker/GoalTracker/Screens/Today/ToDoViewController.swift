@@ -4,10 +4,11 @@
 //
 //  Created by Maha S on 15/12/2021.
 //
-import Firebase
+
 import UIKit
 import FSCalendar
 import UserNotifications
+import Firebase
 
 class ToDoViewController: UIViewController {
   
@@ -15,17 +16,17 @@ class ToDoViewController: UIViewController {
   var calendarHeightConstraint: NSLayoutConstraint!
   let db = Firestore.firestore()
   var ref: CollectionReference!
+  private var calendar = FSCalendar()
   
   @IBOutlet weak var tableView: UITableView!
-
-  private var calendar = FSCalendar()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
     ref = db.collection("Tasks")
-
+    
     ref.getDocuments { snapshot, error in
       if let error = error {
         print(error)
@@ -38,17 +39,16 @@ class ToDoViewController: UIViewController {
         print(document.documentID, document.data())
         let data = document.data()
         let title = data["title"] as? String ?? ""
-        var todo = Todo(title: title)
+        let isComplete = data["isComplete"] as? Bool ?? false
+        var todo = Todo(title: title, isComplete: isComplete)
         todo.uuid = document.documentID
         allTasks.append(todo)
       }
-
       self.tableView.reloadData()
-      
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-          }
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
+    }
     
     
     let center = UNUserNotificationCenter.current()
@@ -64,16 +64,23 @@ class ToDoViewController: UIViewController {
     
     let date = Date().addingTimeInterval(5)
     
-    let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    let dateComponents = Calendar.current.dateComponents([.year,
+                                                          .month,
+                                                          .day,
+                                                          .hour,
+                                                          .minute,
+                                                          .second],
+                                                         from: date)
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     
     let uuidString = UUID().uuidString
     
-    let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: uuidString,
+                                        content: content,
+                                        trigger: trigger)
     
     center.add(request) { error in
-      // check the error parameter and handle any errors
     }
     
     setCalendarConstraints()
@@ -83,18 +90,18 @@ class ToDoViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    db.collection("users").getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            for document in querySnapshot!.documents {
-                print("\(document.documentID) => \(document.data())")
-            }
+    db.collection("Tasks").getDocuments() { (querySnapshot, err) in
+      if let err = err {
+        print("Error getting documents: \(err)")
+      } else {
+        for document in querySnapshot!.documents {
+          print("\(document.documentID) => \(document.data())")
         }
+      }
     }
   }
- 
-
+  
+  
   @IBSegueAction func todoViewController(_ coder: NSCoder) -> AddTaskViewController? {
     let vc = AddTaskViewController(coder: coder)
     
@@ -107,6 +114,11 @@ class ToDoViewController: UIViewController {
     vc?.presentationController?.delegate = self
     
     return vc
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    tableView.reloadData()
   }
 }
 
@@ -133,7 +145,6 @@ extension ToDoViewController: UITableViewDelegate {
       
       print("complete")
     }
-    
     return UISwipeActionsConfiguration(actions: [action])
   }
   
@@ -151,7 +162,7 @@ extension ToDoViewController: UITableViewDelegate {
 // MARK: - Table data source
 
 extension ToDoViewController: UITableViewDataSource {
-
+  
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
     return todos.count
@@ -186,7 +197,6 @@ extension ToDoViewController: UITableViewDataSource {
                  moveRowAt sourceIndexPath: IndexPath,
                  to destinationIndexPath: IndexPath) {
     let todo = todos.remove(at: sourceIndexPath.row)
-    
     todos.insert(todo, at: destinationIndexPath.row)
   }
   
@@ -194,6 +204,21 @@ extension ToDoViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  
+  func addTask(title: String, isComplete: Bool) {
+    let todo = Todo(title: title, isComplete: isComplete)
+    ref.addDocument(data: ["title": todo.title, "isComplete": todo.isComplete]) { error in
+      if let error  = error {
+        print(error)
+        return
+      }
+      
+      print("Successs")
+      self.todos.insert(todo, at: 0)
+      self.tableView.reloadData()
+    }
   }
 }
 
@@ -207,18 +232,14 @@ extension ToDoViewController: CheckTableViewCellDelegate {
     }
     let todo = todos[indexPath.row]
     let newTodo = Todo(title: todo.title, isComplete: checked)
-    
     todos[indexPath.row] = newTodo
   }
-  
 }
 
 
 extension ToDoViewController: AddTaskViewControllerDelegate {
   
   func todoViewController(_ vc: AddTaskViewController, didSaveTodo todo: Todo) {
-    
-    
     dismiss(animated: true) {
       if let indexPath = self.tableView.indexPathForSelectedRow {
         // update
@@ -227,8 +248,12 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
       } else {
         // create
         self.todos.append(todo)
-        self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
+        self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1,
+                                                 section: 0)],
+                                  with: .automatic)
         self.tableView.reloadData()
+        self.persistTodoToFireStore(todo)
+
       }
     }
   }
@@ -243,15 +268,13 @@ extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }
-  
 }
-
 
 
 // MARK: - Calendar data source and delegate
 
 extension ToDoViewController: FSCalendarDataSource,
-                                FSCalendarDelegate {
+                              FSCalendarDelegate {
   
   func calendar(_ calendar: FSCalendar,
                 boundingRectWillChange bounds: CGRect,
@@ -260,9 +283,7 @@ extension ToDoViewController: FSCalendarDataSource,
     
     view.layoutIfNeeded()
   }
-  
 }
-
 
 
 // MARK: - Setup calendar
@@ -293,5 +314,22 @@ extension ToDoViewController {
     
     calendar.translatesAutoresizingMaskIntoConstraints = false
     calendar.scope = .week
+  }
+}
+
+
+extension ToDoViewController {
+  
+  fileprivate func persistTodoToFireStore(_ todo: Todo) {
+    var data: [String: Any] = [:]
+    data["title"] = todo.title
+    data["isComplete"] = false
+    
+    MainThread.run {
+      self.todos.insert(todo, at: 0)
+      self.tableView.performBatchUpdates {
+        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+      } completion: { _ in }
+    }
   }
 }
