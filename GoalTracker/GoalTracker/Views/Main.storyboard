@@ -30,15 +30,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Sign Up">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="Wey-hY-SNs" kind="show" id="786-Yu-NDk"/>
@@ -52,14 +45,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Log in">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Log in">
+                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="4nJ-yc-BYU" kind="show" id="3Ru-be-zhp"/>
@@ -101,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76.811594202898561" y="93.75"/>
+            <point key="canvasLocation" x="361" y="94"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HtR-Vj-BGT">
@@ -134,14 +121,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Log in">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Log in">
+                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="loginTapped:" destination="4nJ-yc-BYU" eventType="touchUpInside" id="UOe-cr-SLV"/>
@@ -189,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFY-Xg-q5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847.82608695652175" y="491.51785714285711"/>
+            <point key="canvasLocation" x="1129" y="492"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ht1-9e-YoM">
@@ -234,15 +215,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Sign Up">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signUpTapped:" destination="Wey-hY-SNs" eventType="touchUpInside" id="vug-9W-EHK"/>
@@ -299,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a64-1i-1lp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847.82608695652175" y="-185.49107142857142"/>
+            <point key="canvasLocation" x="1130" y="-185"/>
         </scene>
         <!--Add Journal View Controller-->
         <scene sceneID="M6h-fw-4NK">
@@ -344,14 +318,8 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Save">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -557,29 +525,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2so-So-38W">
-                                                    <rect key="frame" x="12" y="17" width="270" height="56"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5A-zb-WBR" customClass="Checkbox" customModule="GoalTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="316" y="22" width="48" height="45"/>
+                                                    <rect key="frame" x="8" y="15" width="39" height="59"/>
                                                     <color key="backgroundColor" name="Secondary Brand Fill Color"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <connections>
                                                         <action selector="checked:" destination="bMd-g5-RH7" eventType="valueChanged" id="4dy-IR-HWE"/>
                                                     </connections>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2so-So-38W">
+                                                    <rect key="frame" x="55" y="18" width="291" height="56"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2so-So-38W" firstAttribute="top" secondItem="SCb-5B-f6u" secondAttribute="top" constant="17" id="2it-jv-qcd"/>
-                                                <constraint firstAttribute="bottom" secondItem="2so-So-38W" secondAttribute="bottom" constant="17" id="KrU-M2-Sdd"/>
-                                                <constraint firstAttribute="trailing" secondItem="E5A-zb-WBR" secondAttribute="trailing" constant="10" id="RLD-H9-BN8"/>
-                                                <constraint firstItem="E5A-zb-WBR" firstAttribute="leading" secondItem="2so-So-38W" secondAttribute="trailing" constant="34" id="SNV-0Y-bCG"/>
-                                                <constraint firstItem="E5A-zb-WBR" firstAttribute="leading" secondItem="SCb-5B-f6u" secondAttribute="leading" constant="316" id="cNQ-yx-6JH"/>
-                                                <constraint firstAttribute="bottom" secondItem="E5A-zb-WBR" secondAttribute="bottom" constant="23" id="uEA-EK-bqt"/>
-                                                <constraint firstItem="2so-So-38W" firstAttribute="leading" secondItem="SCb-5B-f6u" secondAttribute="leading" constant="12" id="xTW-x3-WsE"/>
-                                                <constraint firstItem="E5A-zb-WBR" firstAttribute="top" secondItem="SCb-5B-f6u" secondAttribute="top" constant="22" id="yYo-jo-POR"/>
+                                                <constraint firstItem="2so-So-38W" firstAttribute="top" secondItem="SCb-5B-f6u" secondAttribute="top" constant="18" id="2it-jv-qcd"/>
+                                                <constraint firstAttribute="bottom" secondItem="2so-So-38W" secondAttribute="bottom" constant="16" id="KrU-M2-Sdd"/>
+                                                <constraint firstItem="2so-So-38W" firstAttribute="leading" secondItem="E5A-zb-WBR" secondAttribute="trailing" constant="8" id="PGk-VO-yig"/>
+                                                <constraint firstItem="E5A-zb-WBR" firstAttribute="leading" secondItem="SCb-5B-f6u" secondAttribute="leading" constant="8" id="cNQ-yx-6JH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2so-So-38W" secondAttribute="trailing" constant="8" id="oWJ-fS-zjs"/>
+                                                <constraint firstAttribute="bottom" secondItem="E5A-zb-WBR" secondAttribute="bottom" constant="16" id="uEA-EK-bqt"/>
+                                                <constraint firstItem="2so-So-38W" firstAttribute="leading" secondItem="SCb-5B-f6u" secondAttribute="leading" constant="55" id="xTW-x3-WsE"/>
+                                                <constraint firstItem="E5A-zb-WBR" firstAttribute="top" secondItem="SCb-5B-f6u" secondAttribute="top" constant="15" id="yYo-jo-POR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Secondary Brand Fill Color"/>
@@ -630,7 +598,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d16-WU-Cc7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5072463768117" y="1307.8125"/>
+            <point key="canvasLocation" x="1951" y="1308"/>
         </scene>
         <!--Today-->
         <scene sceneID="UYi-Sa-zmp">
@@ -662,7 +630,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNd-F1-JUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="598"/>
+            <point key="canvasLocation" x="1951" y="598"/>
         </scene>
         <!--My Goals-->
         <scene sceneID="90m-kg-eAE">
@@ -775,7 +743,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dM-Um-FIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657.971014492754" y="1307.8125"/>
+            <point key="canvasLocation" x="2722" y="1308"/>
         </scene>
         <!--Journal-->
         <scene sceneID="Xfd-Yb-zpI">
@@ -804,7 +772,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7O-0V-bgi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="598"/>
+            <point key="canvasLocation" x="3496" y="598"/>
         </scene>
         <!--Profile-->
         <scene sceneID="44O-L0-qET">
@@ -841,14 +809,8 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Done">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -895,7 +857,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azg-9d-d7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="2007"/>
+            <point key="canvasLocation" x="1951" y="2007"/>
         </scene>
         <!--Goal Category View Controller-->
         <scene sceneID="sUB-2d-fcq">
@@ -985,7 +947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpx-no-yZl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="2007"/>
+            <point key="canvasLocation" x="2722" y="2007"/>
         </scene>
         <!--Goals-->
         <scene sceneID="gyU-zs-t3T">
@@ -1015,7 +977,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnc-kR-g4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="598"/>
+            <point key="canvasLocation" x="2722" y="598"/>
         </scene>
         <!--Add Goal View Controller-->
         <scene sceneID="1oX-hv-U58">
@@ -1057,14 +1019,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Add">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Add">
+                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="save:" destination="UEP-6F-Z8z" eventType="touchUpInside" id="ScD-Bc-Dgn"/>
@@ -1114,7 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFP-Zi-DNO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="2682"/>
+            <point key="canvasLocation" x="2722" y="2682"/>
         </scene>
         <!--JournalView-->
         <scene sceneID="bgz-DA-jdI">
@@ -1125,7 +1081,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dQj-mQ-man">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" name="Primary Brand Fill Color"/>
                                 <color key="separatorColor" systemColor="systemGray5Color"/>
                                 <color key="sectionIndexColor" red="0.90588235289999997" green="0.95686274510000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1192,7 +1148,7 @@
                         <color key="backgroundColor" name="Primary Brand Fill Color"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="dQj-mQ-man" firstAttribute="top" secondItem="Hra-KO-JJP" secondAttribute="top" constant="88" id="8Tx-yl-zcM"/>
+                            <constraint firstItem="dQj-mQ-man" firstAttribute="top" secondItem="Hra-KO-JJP" secondAttribute="top" constant="100" id="8Tx-yl-zcM"/>
                             <constraint firstAttribute="bottom" secondItem="dQj-mQ-man" secondAttribute="bottom" id="NRN-zA-ptJ"/>
                             <constraint firstItem="dQj-mQ-man" firstAttribute="leading" secondItem="Hra-KO-JJP" secondAttribute="leading" id="eMh-u8-vGl"/>
                             <constraint firstAttribute="trailing" secondItem="dQj-mQ-man" secondAttribute="trailing" id="sbY-vz-RuA"/>
@@ -1311,11 +1267,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnd-yr-ylU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-661" y="94"/>
+            <point key="canvasLocation" x="-454" y="94"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="09K-lS-4V7"/>
+        <segue reference="wgo-9p-OXI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Brand Accent Color"/>
     <resources>
