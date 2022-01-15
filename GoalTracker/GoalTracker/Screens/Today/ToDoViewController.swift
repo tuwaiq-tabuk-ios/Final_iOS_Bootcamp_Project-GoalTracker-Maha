@@ -44,8 +44,8 @@ class ToDoViewController: UIViewController {
         todo.uuid = document.documentID
         allTasks.append(todo)
       }
-      self.tableView.reloadData()
-      DispatchQueue.main.async {
+      self.todos = allTasks
+      MainThread.run {
         self.tableView.reloadData()
       }
     }
@@ -88,17 +88,6 @@ class ToDoViewController: UIViewController {
     calendar.delegate = self
     calendar.dataSource = self
     
-    let db = Firestore.firestore()
-    
-    db.collection("Tasks").getDocuments() { (querySnapshot, err) in
-      if let err = err {
-        print("Error getting documents: \(err)")
-      } else {
-        for document in querySnapshot!.documents {
-          print("\(document.documentID) => \(document.data())")
-        }
-      }
-    }
   }
   
   
@@ -187,8 +176,21 @@ extension ToDoViewController: UITableViewDataSource {
                  commit editingStyle: UITableViewCell.EditingStyle,
                  forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      todos.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .automatic)
+      let loadingViewController: LoadingViewController = .init()
+      present(loadingViewController, animated: true) { [self] in
+        let todo = todos[indexPath.row]
+        removeFromFireStore(for: todo) { [self] error in
+          loadingViewController.dismiss(animated: true) {
+            if let error = error {
+              print(error)
+              return
+            }
+            
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+          }
+        }
+      }
     }
   }
   
@@ -246,14 +248,20 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
         self.todos[indexPath.row] = todo
         self.tableView.reloadRows(at: [indexPath], with: .none)
       } else {
-        // create
-        self.todos.append(todo)
-        self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1,
-                                                 section: 0)],
-                                  with: .automatic)
-        self.tableView.reloadData()
-        self.persistTodoToFireStore(todo)
-
+        self.persistTodoToFireStore(todo) { result in
+          switch result {
+          case .failure(let error):
+            print(error)
+            
+          case .success(let todo):
+            // create
+            self.todos.insert(todo, at: 0)
+            self.tableView.performBatchUpdates {
+              self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            } completion: { _ in }
+          }
+        }
+        
       }
     }
   }
@@ -320,16 +328,28 @@ extension ToDoViewController {
 
 extension ToDoViewController {
   
-  fileprivate func persistTodoToFireStore(_ todo: Todo) {
+  fileprivate func persistTodoToFireStore(_ todo: Todo,
+                                          _ completion: ((Result<Todo, Error>) -> Void)?) {
     var data: [String: Any] = [:]
     data["title"] = todo.title
-    data["isComplete"] = false
+    data["isComplete"] = todo.isComplete
     
-    MainThread.run {
-      self.todos.insert(todo, at: 0)
-      self.tableView.performBatchUpdates {
-        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-      } completion: { _ in }
+    ref.addDocument(data: data) { error in
+      MainThread.run {
+        if let error  = error {
+          completion?(.failure(error))
+          return
+        }
+        completion?(.success(todo))
+      }
+    }
+  }
+  
+  fileprivate func removeFromFireStore(for todo: Todo, completion: ((Error?) -> Void)?) {
+    ref.document(todo.uuid).delete { error in
+      MainThread.run {
+        completion?(error)
+      }
     }
   }
 }

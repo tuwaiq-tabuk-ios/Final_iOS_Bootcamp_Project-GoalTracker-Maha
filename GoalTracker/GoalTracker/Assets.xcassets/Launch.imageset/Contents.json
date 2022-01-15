@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "7324056_ui_interface_correct_check_accept_icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "7324056-256.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
