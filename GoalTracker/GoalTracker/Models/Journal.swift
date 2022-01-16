@@ -9,6 +9,8 @@ import UIKit
 
 class Journal {
   
+  // MARK: - Properties
+  
   var title = ""
   var date: Double = 0.0
   var body = ""
@@ -18,6 +20,8 @@ class Journal {
     let formattedDate = Formatter.mmmddYYYYDateFormatter.string(from: date)
     return formattedDate
   }
+  
+  // MARK: - Init
   
   convenience init(title: String, date: Double, body: String) {
     self.init()

@@ -12,6 +12,8 @@ import Firebase
 
 class ToDoViewController: UIViewController {
   
+  // MARK: - Proprties
+  
   var todos = [Todo]()
   var calendarHeightConstraint: NSLayoutConstraint!
   let db = Firestore.firestore()
@@ -20,6 +22,7 @@ class ToDoViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  // MARK: - View Controller Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,7 +62,7 @@ class ToDoViewController: UIViewController {
     }
     
     let content = UNMutableNotificationContent()
-    content.title = "Hey"
+    content.title = "Goal Tracker"
     content.body = "Don't forget to finish your tasks for today!"
     
     let date = Date().addingTimeInterval(5)
@@ -90,6 +93,7 @@ class ToDoViewController: UIViewController {
     
   }
   
+  // MARK: - IBSegueAction
   
   @IBSegueAction func todoViewController(_ coder: NSCoder) -> AddTaskViewController? {
     let vc = AddTaskViewController(coder: coder)
@@ -176,20 +180,15 @@ extension ToDoViewController: UITableViewDataSource {
                  commit editingStyle: UITableViewCell.EditingStyle,
                  forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      let loadingViewController: LoadingViewController = .init()
-      present(loadingViewController, animated: true) { [self] in
-        let todo = todos[indexPath.row]
-        removeFromFireStore(for: todo) { [self] error in
-          loadingViewController.dismiss(animated: true) {
-            if let error = error {
-              print(error)
-              return
-            }
-            
-            todos.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-          }
+      let todo = todos[indexPath.row]
+      removeFromFireStore(for: todo) { [self] error in
+        if let error = error {
+          print(error)
+          return
         }
+        
+        todos.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
       }
     }
   }
@@ -224,7 +223,7 @@ extension ToDoViewController: UITableViewDataSource {
   }
 }
 
-
+// MARK: - CheckTableViewCellDelegate
 
 extension ToDoViewController: CheckTableViewCellDelegate {
   
@@ -238,6 +237,9 @@ extension ToDoViewController: CheckTableViewCellDelegate {
   }
 }
 
+
+
+// MARK: - AddTaskViewControllerDelegate
 
 extension ToDoViewController: AddTaskViewControllerDelegate {
   
@@ -269,6 +271,8 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
 
 
 
+// MARK: - UIAdaptivePresentationControllerDelegate
+
 extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
   
   func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
@@ -277,6 +281,7 @@ extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
     }
   }
 }
+
 
 
 // MARK: - Calendar data source and delegate

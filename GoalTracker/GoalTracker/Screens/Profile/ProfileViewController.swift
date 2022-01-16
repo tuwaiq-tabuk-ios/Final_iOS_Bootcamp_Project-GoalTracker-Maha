@@ -12,10 +12,13 @@ class ProfileViewController: UIViewController {
   
   let db = Firestore.firestore()
   
+  // MARK: - IBOutlets
+  
   @IBOutlet weak var firstName: UITextView!
   @IBOutlet weak var lastName: UITextView!
   @IBOutlet weak var logOut: UIButton!
   
+  // MARK: - View Controller Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +28,7 @@ class ProfileViewController: UIViewController {
     guard let uid = Auth.auth().currentUser?.uid, !uid.isEmpty else {
       return
     }
+    
     FirebaseManager.shared.fetchUserInfo(using: uid) { result in
       switch result {
       case .failure(let error):
@@ -41,6 +45,7 @@ class ProfileViewController: UIViewController {
     }
   }
   
+  // MARK: - IBAction
   
   @IBAction func signOutPressed(_ sender: Any) {
     do {
@@ -53,7 +58,8 @@ class ProfileViewController: UIViewController {
     }
   }
   
-    
+  // MARK: - Methods
+  
   func setUpElement() {
     Utilities.styleTextView(firstName)
     Utilities.styleTextView(lastName)
@@ -62,6 +68,7 @@ class ProfileViewController: UIViewController {
   }
 }
 
+// MARK: - Firebase
 
 final class FirebaseManager {
   enum FirebaseError: String, Error {
@@ -92,7 +99,7 @@ final class FirebaseManager {
         }
       }
   }
- 
+  
   func fetchGoals(_ completion: ((Result<[Goal], Error>) -> Void)?) {
     db.collection("Goals").getDocuments { snapshot, error in
       MainThread.run {

@@ -9,13 +9,13 @@ import UIKit
 
 struct Category {
   
+  // MARK: - Methods
+  
   let title: String
   let image: UIImage
-  
 }
 
-   // cg = shortcut for category
-
+// cg = shortcut for category
 let cg: [Category] = [
   Category(title: "Career & Work", image: UIImage(named: "Career")!),
   Category(title: "Finance & Money", image: UIImage(named: "Money")!),

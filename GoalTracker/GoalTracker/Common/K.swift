@@ -9,11 +9,11 @@ import Foundation
 
 
 struct K {
+  
+  struct Storyboard {
+    static let homeViewController = "HomeVC"
     
-    struct Storyboard {
-        static let homeViewController = "HomeVC"
-        
-    }
+  }
   
   struct Cells {
     static let cellWithIdentifierCheckedCell = "checked cell"

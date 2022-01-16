@@ -9,13 +9,18 @@ import UIKit
 
 class DetailsViewController: UIViewController {
   
+  // MARK: - Properties
+  
   var journal: Journal?
+  
+  // MARK: - IBOutlets
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var bodyText: UITextView!
   
-
+  // MARK: - View Controller Lifecycle
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -27,10 +32,10 @@ class DetailsViewController: UIViewController {
     }
     
   }
-
-
+  
+  
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
     bodyText.layer.cornerRadius = 10
     
     navigationItem.title = "Journals"

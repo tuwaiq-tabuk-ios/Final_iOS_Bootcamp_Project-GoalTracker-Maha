@@ -10,12 +10,14 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
   
+  // MARK: - IBOutlets
   
   @IBOutlet var emailTextField: UITextField!
   @IBOutlet var passwordTextField: UITextField!
   @IBOutlet var logInButton: UIButton!
   @IBOutlet var errorLabel: UILabel!
   
+  // MARK: - View Controller Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,23 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   }
   
   
-  func addLeftImageTo(textField: UITextField, andImage img: UIImage) {
-    let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: img.size.width, height: img.size.height))
-    leftImageView.image = img
-    emailTextField.rightView = leftImageView
-    emailTextField.rightViewMode = .always
-  }
-  
-  
-  func setUpElement() {
-    // hide error label
-    errorLabel.alpha = 0
-    emailTextField.becomeFirstResponder()
-    Utilities.styleTextField(emailTextField)
-    Utilities.styleTextField(passwordTextField)
-    Utilities.styleFilledButton(logInButton)
-  }
-  
+  // MARK: - IBAction
   
   @IBAction func loginTapped(_ sender: Any) {
     
@@ -70,10 +56,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
       }
     }
-    
-    
-    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-      view.endEditing(true)
-    }
+  }
+  
+  // MARK: - Methods
+  
+  func setUpElement() {
+    // hide error label
+    errorLabel.alpha = 0
+    emailTextField.becomeFirstResponder()
+    Utilities.styleTextField(emailTextField)
+    Utilities.styleTextField(passwordTextField)
+    Utilities.styleFilledButton(logInButton)
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
   }
 }
