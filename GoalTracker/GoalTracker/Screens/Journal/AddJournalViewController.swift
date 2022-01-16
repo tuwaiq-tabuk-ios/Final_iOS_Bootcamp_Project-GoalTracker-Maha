@@ -13,26 +13,31 @@ protocol AddJournal {
 
 class AddJournalViewController: UIViewController, UITextFieldDelegate {
   
+  // MARK: - Properties
+  
+  let datePicker = UIDatePicker()
+  var delegate: AddJournal?
+  
+  // MARK: - IBOutlets
   
   @IBOutlet weak var titleTextField: UITextField!
   @IBOutlet weak var dateText: UITextField!
   @IBOutlet weak var journalTextView: UITextView!
   @IBOutlet weak var saveButton: UIButton!
   
-  let datePicker = UIDatePicker()
-  var delegate: AddJournal?
-
+  // MARK: - View Controller Lifecycle
   
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      setUpElement()
-      createDatePicker()
-      navigationItem.title = "Add Entry"
-      navigationItem.largeTitleDisplayMode = .never
-      
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    setUpElement()
+    createDatePicker()
+    navigationItem.title = "Add Entry"
+    navigationItem.largeTitleDisplayMode = .never
+    
   }
   
+  // MARK: - Methods
   
   func createToolBar() -> UIToolbar{
     let toolbar = UIToolbar()
@@ -46,14 +51,13 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
     return toolbar
   }
   
- 
+  
   func createDatePicker() {
     datePicker.preferredDatePickerStyle = .wheels
     datePicker.datePickerMode = .date
     dateText.textAlignment = .center
     dateText.inputView = datePicker
     dateText.inputAccessoryView = createToolBar()
-    
   }
   
   // datePicker
@@ -65,21 +69,6 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
     
     self.view.endEditing(true)
     self.dateText.text = dateFormatter.string(from: datePicker.date)
-    
-  }
-  
-  
-  @IBAction func savePressed(_ sender: UIButton) {
-    if titleTextField.text != "" {
-      let date = datePicker.date.timeIntervalSince1970
-      delegate?.addJournal(title: titleTextField.text!, date: date, body: journalTextView.text!)
-      navigationController?.popViewController(animated: true)
-    }
-  }
-
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    view.endEditing(true)
   }
   
   
@@ -92,10 +81,18 @@ class AddJournalViewController: UIViewController, UITextFieldDelegate {
   }
   
   
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if let destination = segue.destination as? DetailsViewController {
-////      destination.titleText = titleTextField.text!
-//    }
-//  }
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
+  
+  // MARK: - IBAction
+  
+  @IBAction func savePressed(_ sender: UIButton) {
+    if titleTextField.text != "" {
+      let date = datePicker.date.timeIntervalSince1970
+      delegate?.addJournal(title: titleTextField.text!, date: date, body: journalTextView.text!)
+      navigationController?.popViewController(animated: true)
+    }
+  }
 }
 

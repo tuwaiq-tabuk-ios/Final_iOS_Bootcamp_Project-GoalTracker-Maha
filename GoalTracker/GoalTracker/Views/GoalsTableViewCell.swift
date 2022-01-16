@@ -14,19 +14,26 @@ protocol GoalsTableViewCellDelegate: AnyObject {
 
 
 class GoalsTableViewCell: UITableViewCell {
-
+  
+  // MARK: - Methods
+  
+  weak var delegate: GoalsTableViewCellDelegate?
+  
+  // MARK: - IBOutlets
+  
   @IBOutlet weak var goalLabel: UILabel!
   @IBOutlet weak var checkBox: Checkbox!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var categoryLabel: UILabel!
   
-  weak var delegate: GoalsTableViewCellDelegate?
+  // MARK: - IBAction
   
   @IBAction func checked(_ sender: Checkbox) {
     updateChecked()
     delegate?.goalsTableViewCell(self, didChagneCheckedState: checkBox.checked)
   }
   
+  // MARK: - Methods
   
   func set(title: String, checked: Bool, date: Double, category: String) {
     goalLabel.text = title
@@ -61,5 +68,5 @@ class GoalsTableViewCell: UITableViewCell {
     
   }
 }
-   
+
 

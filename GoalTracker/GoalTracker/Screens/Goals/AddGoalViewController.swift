@@ -13,29 +13,35 @@ protocol AddGoalViewControllerDelegate: AnyObject {
 }
 
 
-class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class AddGoalViewController: UIViewController, UIPickerViewDelegate,
+                             UIPickerViewDataSource, UITextFieldDelegate {
   
+  
+  // MARK: - Properties
+  
+  var selectedCategory: String?
+  let categoryPicker = UIPickerView()
+  var currentIndex = 0
+  let datePicker = UIDatePicker()
+  weak var delegate: AddGoalViewControllerDelegate?
+  var goal: Goal?
+  
+  // MARK: - IBOutlets
   
   @IBOutlet weak var addTextField: UITextField!
   @IBOutlet weak var dateTextField: UITextField!
   @IBOutlet weak var categoryTextField: UITextField!
   @IBOutlet weak var addButton: UIButton!
   
-  var selectedCategory: String?
-  let categoryPicker = UIPickerView()
-  var currentIndex = 0
-  let datePicker = UIDatePicker()
   
-  weak var delegate: AddGoalViewControllerDelegate?
-
-  var goal: Goal?
+  // MARK: - View Controller Lifecycle
   
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
     
     navigationItem.title = "Add Goal"
     navigationItem.largeTitleDisplayMode = .never
-
+    
     if let selectedCategory = selectedCategory {
       categoryTextField.text = selectedCategory
     }
@@ -73,8 +79,10 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     dateTextField.inputAccessoryView = toolBar
     dateTextField.textAlignment = .center
     
-    }
+  }
   
+  
+  // MARK: - IBActions
   
   @IBAction func save(_ sender: Any) {
     let title = addTextField.text ?? ""
@@ -85,6 +93,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     delegate?.addGoalViewController(self, didSaveGoal: goal)
   }
   
+  // MARK: - Methods
   
   @objc func dateChange(datePicker: UIDatePicker) {
     dateTextField.text = formatDate(date: datePicker.date)
@@ -102,7 +111,7 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     return formatter.string(from: date)
   }
-
+  
   
   @objc func closePicker() {
     categoryTextField.text = cg[currentIndex].title
@@ -119,6 +128,11 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     Utilities.styleFilledButton(addButton)
   }
   
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
+  
+  // MARK: - UIPickerView
   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
@@ -142,8 +156,4 @@ class AddGoalViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     categoryTextField.text = cg[row].title
   }
   
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    view.endEditing(true)
-  }
 }

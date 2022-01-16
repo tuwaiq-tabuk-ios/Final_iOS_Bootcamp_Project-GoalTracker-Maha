@@ -18,22 +18,28 @@ class Formatter {
 
 
 class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddJournal {
-
+  
+  // MARK: - Properties
+  
   var journals = [Journal]()
   let db = Firestore.firestore()
   var ref: CollectionReference!
   
+  // MARK: - IBOutlet
+  
   @IBOutlet weak var tableView: UITableView!
- 
+  
+  // MARK: - View Controller Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
     
-   
+    
     ref = db.collection("journal")
-
+    
     ref.getDocuments { snapshot, error in
       if let error = error {
         print(error)
@@ -52,26 +58,13 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
         journal.uuid = document.documentID
         allJournals.append(journal)
       }
-
+      
       self.journals = allJournals.sorted(by: { $0.date < $1.date })
       self.tableView.reloadData()
       
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-          }
-        }
-      
-  
-  func deleteJournal(_ journal: Journal, completion: ((Error?) -> Void)?) {
-    let deletionID = journal.uuid
-    self.ref.document(deletionID).delete { error in
-      if let error = error {
-        completion?(error)
-        return
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
       }
-      
-      completion?(nil)
     }
   }
   
@@ -81,6 +74,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     tableView.reloadData()
   }
   
+  // MARK: - IBSegueActions
   
   @IBSegueAction func addTitle(_ coder: NSCoder) -> AddJournalViewController? {
     let aT = AddJournalViewController(coder: coder)
@@ -91,15 +85,16 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   
   @IBSegueAction func addJournal(_ coder: NSCoder) -> DetailsViewController? {
     let vc = DetailsViewController(coder: coder)
-
-        if let indexpath = tableView.indexPathForSelectedRow {
-          let journal = journals[indexpath.row]
-          vc?.journal = journal
-        }
-
+    
+    if let indexpath = tableView.indexPathForSelectedRow {
+      let journal = journals[indexpath.row]
+      vc?.journal = journal
+    }
+    
     return vc
   }
-
+  
+  // MARK: - Methods
   
   func addJournal(title: String, date: Double, body: String) {
     let journal = Journal(title: title, date: date, body: body)
@@ -117,6 +112,20 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
   }
   
   
+  func deleteJournal(_ journal: Journal, completion: ((Error?) -> Void)?) {
+    let deletionID = journal.uuid
+    self.ref.document(deletionID).delete { error in
+      if let error = error {
+        completion?(error)
+        return
+      }
+      
+      completion?(nil)
+    }
+  }
+  
+  // MARK: - TableView
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return journals.count
   }
@@ -129,8 +138,8 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     cell.bodyLabel.text = journal.body
     cell.dateLabel.text = journal.formattedDate
     return cell
-}
- 
+  }
+  
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     
@@ -150,7 +159,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
           self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
       }
-      
+      // delete warning
       let alertController = UIAlertController(title: "Warning", message: "Would you like to delete this Journal now?", preferredStyle: .actionSheet)
       alertController.addAction(cancelaction)
       alertController.addAction(deleteAction)
@@ -159,17 +168,19 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
   }
   
+  //  DetailsViewController Segue
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let journal = journals[indexPath.row]
-
+    
     if let detailViewController: DetailsViewController = UIStoryboard.main.instantiate() {
       detailViewController.journal = journal
       navigationController?.pushViewController(detailViewController, animated: true)
     }
   }
- }
+}
 
 
+// MARK: - DetailsViewController Segue
 
 extension UIStoryboard {
   static var main: UIStoryboard {
@@ -181,7 +192,6 @@ extension UIStoryboard {
     return viewController
   }
 }
-
 
 
 extension UIViewController {

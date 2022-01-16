@@ -10,6 +10,8 @@ import Firebase
 
 struct Goal {
   
+  // MARK: - Properties
+  
   var title: String
   var isComplete: Bool = false
   let date: Double
@@ -20,6 +22,8 @@ struct Goal {
     let formattedDate = Formatter.mmmddYYYYDateFormatter.string(from: date)
     return formattedDate
   }
+  
+  // MARK: - Init
   
   init(title: String, isComplete: Bool = false, date: Double, category: String) {
     self.title = title
@@ -43,6 +47,8 @@ struct Goal {
     isComplete = data["isCompleted"] as? Bool ?? false
     uuid = document.documentID
   }
+  
+  // MARK: - Methods
   
   func completeToggled() -> Goal {
     return Goal(title: title, isComplete: !isComplete, date: date, category: category)

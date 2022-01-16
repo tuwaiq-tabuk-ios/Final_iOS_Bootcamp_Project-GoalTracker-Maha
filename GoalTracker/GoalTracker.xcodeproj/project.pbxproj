@@ -24,6 +24,7 @@
 		31B1B7D52767546900E38D0E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D12767546900E38D0E /* LoginViewController.swift */; };
 		31B1B7D92767546F00E38D0E /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D72767546F00E38D0E /* K.swift */; };
 		31B1B7DA2767546F00E38D0E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7D82767546F00E38D0E /* Utilities.swift */; };
+		31B8B93F2793F6FA00834D1D /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8B93E2793F6FA00834D1D /* IndicatorView.swift */; };
 		31C045102779951D00FAEEB0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */; };
 		31C04512277996EA00FAEEB0 /* GoalCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */; };
 		31C045142779A0EB00FAEEB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C045132779A0EB00FAEEB0 /* Category.swift */; };
@@ -61,6 +62,7 @@
 		31B1B7D12767546900E38D0E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31B1B7D72767546F00E38D0E /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		31B1B7D82767546F00E38D0E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		31B8B93E2793F6FA00834D1D /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		31C0450F2779951D00FAEEB0 /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		31C04511277996EA00FAEEB0 /* GoalCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCategoryViewController.swift; sourceTree = "<group>"; };
 		31C045132779A0EB00FAEEB0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				317C86A4277B77AC00B85F83 /* Goals.swift */,
 				31F385D82780A17D005921A4 /* Journal.swift */,
 				31EB917327817FA70014D168 /* CheckAlert.swift */,
+				31B8B93E2793F6FA00834D1D /* IndicatorView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */,
 				317C86A5277B77AC00B85F83 /* Goals.swift in Sources */,
 				31B1B7D32767546900E38D0E /* MainViewController.swift in Sources */,
+				31B8B93F2793F6FA00834D1D /* IndicatorView.swift in Sources */,
 				31F3862027789E82006F4306 /* DetailsViewController.swift in Sources */,
 				317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */,
 				31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */,

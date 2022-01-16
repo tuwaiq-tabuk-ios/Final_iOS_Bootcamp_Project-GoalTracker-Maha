@@ -8,11 +8,14 @@
 import UIKit
 
 class JournalViewCell: UITableViewCell {
-
-
+  
+  // MARK: - IBOutlets
+  
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var bodyLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  
+  // MARK: - View Controller Lifecycle
   
   override func awakeFromNib() {
     super.awakeFromNib()

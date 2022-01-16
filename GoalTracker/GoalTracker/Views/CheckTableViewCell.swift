@@ -14,18 +14,25 @@ protocol CheckTableViewCellDelegate: AnyObject {
 
 
 class CheckTableViewCell: UITableViewCell {
-
+  
+  // MARK: - Properties
+  
+  weak var delegate: CheckTableViewCellDelegate?
+  
+  // MARK: - IBOutlets
+  
   @IBOutlet weak var checkbox: Checkbox!
   @IBOutlet weak var label: UILabel!
   
-  weak var delegate: CheckTableViewCellDelegate?
-
+  
+  // MARK: - IBAction
   
   @IBAction func checked(_ sender: Checkbox) {
     updateChecked()
     delegate?.checkTableViewCell(self, didChagneCheckedState: checkbox.checked)
   }
   
+  // MARK: - Methods
   
   func set(title: String, checked: Bool) {
     label.text = title

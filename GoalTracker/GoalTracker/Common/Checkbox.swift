@@ -10,6 +10,8 @@ import UIKit
 @IBDesignable
 class Checkbox: UIControl {
   
+  // MARK: - Properties
+  
   private weak var imageView: UIImageView!
   
   private var image: UIImage {
@@ -24,6 +26,7 @@ class Checkbox: UIControl {
     }
   }
   
+  // MARK: - Init
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -36,6 +39,7 @@ class Checkbox: UIControl {
     setup()
   }
   
+  // MARK: - Methodsx
   
   private func setup() {
     let imageView = UIImageView()

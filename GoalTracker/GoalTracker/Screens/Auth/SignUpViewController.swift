@@ -12,14 +12,17 @@ import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
   
+  // MARK: - IBOutlets
   
   @IBOutlet var firstNameTextField: UITextField!
   @IBOutlet var lastNameTextField: UITextField!
   @IBOutlet var emailTextField: UITextField!
   @IBOutlet var passwordTextField: UITextField!
+  @IBOutlet var confirmPassword: UITextField!
   @IBOutlet var signUpButton: UIButton!
   @IBOutlet var errorLabel: UILabel!
   
+  // MARK: - View controller LifeCycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,29 +31,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   }
   
   
-  func addLeftImageTo(textField: UITextField, andImage img: UIImage) {
-    let leftImageView = UIImageView(frame: CGRect(x: 0.0,
-                                                  y: 0.0,
-                                                  width: img.size.width,
-                                                  height: img.size.height))
-    leftImageView.image = img
-    emailTextField.rightView = leftImageView
-    emailTextField.rightViewMode = .always
-  }
-  
-  
-  func setUpElement() {
-    errorLabel.alpha = 0
-    firstNameTextField.becomeFirstResponder()
-    
-    Utilities.styleTextField(firstNameTextField)
-    Utilities.styleTextField(lastNameTextField)
-    Utilities.styleTextField(emailTextField)
-    Utilities.styleTextField(passwordTextField)
-    Utilities.styleFilledButton(signUpButton)
-    
-  }
-  
+  // MARK: - Register
   
   func validateFields() -> String? {
     if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -58,21 +39,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
       
-      return "Please fill in all fields."
+      return "Please fill in all fields"
     }
     
     let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
     
     if Utilities.isPasswordValid(cleanedPassword) == false {
-      return "Incorrect password."
+      return "Incorrect password"
     }
     
     return nil
   }
   
+  // MARK: - IBAction
   
   @IBAction func signUpTapped(_ sender: Any) {
-
+    
     let error = validateFields()
     
     if error != nil {
@@ -84,27 +66,35 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
       let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
       let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
       
-      Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-        
-        if err != nil {
+      
+      if passwordTextField.text != confirmPassword.text {
+        self.showError("Password not maching")
+      } else {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
           
-          self.showError("Error creating user")
-        } else {
-          
-          let db = Firestore.firestore()
-          
-          db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
+          if err != nil {
             
-            if error != nil {
-              self.showError("Error saving user data")
+            self.showError("Error creating user")
+          } else {
+            
+            let db = Firestore.firestore()
+            
+            db.collection("users").addDocument(data: ["firstname":firstName,
+                                                      "lastname":lastName,
+                                                      "uid": result!.user.uid ]) { (error) in
+              
+              if error != nil {
+                self.showError("Error saving user data")
+              }
             }
+            self.transitionToHome()
           }
-              self.transitionToHome()
         }
       }
     }
   }
   
+  // MARK: - Methods
   
   func showError(_ message:String) {
     errorLabel.text = message
@@ -117,6 +107,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     view.window?.rootViewController = homeViewController
     view.window?.makeKeyAndVisible()
+  }
+  
+  
+  func setUpElement() {
+    errorLabel.alpha = 0
+    firstNameTextField.becomeFirstResponder()
+    Utilities.styleFilledButton(signUpButton)
+    
   }
   
   

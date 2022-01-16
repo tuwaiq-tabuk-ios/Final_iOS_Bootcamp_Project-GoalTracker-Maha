@@ -9,11 +9,15 @@ import UIKit
 
 class GoalCategoryViewController: UIViewController {
   
+  // MARK: - Properties
   
-  @IBOutlet weak var collectionView: UICollectionView!
   private var selectedCategory: String?
   weak var addGoalDelegate: AddGoalViewControllerDelegate?
   
+  // MARK: - IBOutlet
+  @IBOutlet weak var collectionView: UICollectionView!
+  
+  // MARK: - IBSegueAction
   
   @IBSegueAction func addGaol(_ coder: NSCoder, sender: Any?) -> AddGoalViewController? {
     let addGoalVC = AddGoalViewController(coder: coder)
@@ -27,13 +31,15 @@ class GoalCategoryViewController: UIViewController {
     return
   }
   
+  // MARK: - View Controller Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationItem.title = "Categories"
     navigationItem.largeTitleDisplayMode = .never
     view.addSubview(collectionView)
-
+    
     collectionView.dataSource = self
     collectionView.delegate = self
     
@@ -45,6 +51,9 @@ class GoalCategoryViewController: UIViewController {
   }
 }
 
+
+
+// MARK: - UICollectionViewDataSource
 
 extension GoalCategoryViewController: UICollectionViewDataSource {
   
@@ -64,8 +73,11 @@ extension GoalCategoryViewController: UICollectionViewDataSource {
 }
 
 
-extension GoalCategoryViewController: UICollectionViewDelegateFlowLayout {
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension GoalCategoryViewController: UICollectionViewDelegateFlowLayout {
+  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let availableWidth: CGFloat = (collectionView.bounds.width - 16*3)
     let width: CGFloat = availableWidth / 2
@@ -73,6 +85,9 @@ extension GoalCategoryViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
+
+
+// MARK: - UICollectionViewDelegate
 
 extension GoalCategoryViewController: UICollectionViewDelegate {
   

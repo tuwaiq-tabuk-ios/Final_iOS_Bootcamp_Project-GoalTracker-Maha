@@ -20,6 +20,8 @@ class Format {
 
 class GoalsViewController: UIViewController {
   
+  // MARK: - Properties
+  
   var goals = [Goal]()
   let customAlert = MyAlert()
   let db = Firestore.firestore()
@@ -28,6 +30,8 @@ class GoalsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   
+  // MARK: - View Controller Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -35,23 +39,20 @@ class GoalsViewController: UIViewController {
     fetchGoals()
   }
   
-  
+
   func deleteGoal(_ goal: Goal, completion: ((Error?) -> Void)?) {
     let deletionID = goal.uuid
-    let loadingViewController: LoadingViewController = .init()
-    present(loadingViewController, animated: true) { [self] in
-      self.ref.document(deletionID).delete { error in
-        loadingViewController.dismiss(animated: true) {
-          if let error = error {
-            completion?(error)
-            return
-          }
-          completion?(nil)
-        }
+    self.ref.document(deletionID).delete { error in
+      if let error = error {
+        completion?(error)
+        return
       }
+      completion?(nil)
+      
     }
   }
   
+  // MARK: - IBAction
   
   @IBAction func didTapButton() {
     customAlert.showAlert(with: "Congratulations🥳🎉!",
@@ -64,6 +65,8 @@ class GoalsViewController: UIViewController {
     customAlert.dismissAlert()
   }
   
+  
+  // MARK: - IBSegueActions
   
   @IBSegueAction func addGaolCategory(_ coder: NSCoder, sender: Any?) -> GoalCategoryViewController? {
     let catVC = GoalCategoryViewController(coder: coder)
@@ -93,10 +96,6 @@ class GoalsViewController: UIViewController {
 extension GoalsViewController {
   fileprivate func fetchGoals()  {
     
-    let loadingView = LoadingView()
-    loadingView.startAnimating()
-    tableView.backgroundView = loadingView
-    
     FirebaseManager.shared.fetchGoals { [weak self] result in
       guard let self = self else { return }
       self.tableView.backgroundView = nil
@@ -117,29 +116,17 @@ extension GoalsViewController {
     data["date"] = goal.date
     data["category"] = goal.category
     data["isCompleted"] = false
-    
-    let loadingViewController: LoadingViewController = .init()
-    present(loadingViewController, animated: true) { [self] in
-      ref.addDocument(data: data) { [weak self] error in
-        loadingViewController.dismiss(animated: true) {
-          guard let self = self else { return }
-          if let error  = error {
-            print(error)
-            return
-          }
-          
-          MainThread.run {
-            self.goals.insert(goal, at: 0)
-            self.tableView.performBatchUpdates {
-              self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            } completion: { _ in }
-          }
-        }
+    ref.addDocument(data: data) { [weak self] error in
+      
+      MainThread.run {
+        self!.goals.insert(goal, at: 0)
+        self!.tableView.performBatchUpdates {
+          self!.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        } completion: { _ in }
       }
     }
   }
 }
-
 
 // MARK: - UITableViewDelegate
 
@@ -193,7 +180,7 @@ extension GoalsViewController: UITableViewDataSource {
                                        , handler: nil)
       let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
         deleteGoal(goal) { [weak self] error in
-          guard let self = self else { return }
+          guard self != nil else { return }
           if let error = error {
             print(error) // Show user error
             return
@@ -283,87 +270,5 @@ struct MainThread {
         block()
       }
     }
-  }
-}
-
-
-final class LoadingView: UIView {
-  
-  // MARK: - Properties
-  
-  private lazy var indicatorView: UIActivityIndicatorView = {
-    let indicatorView = UIActivityIndicatorView()
-    indicatorView.style = .medium
-    indicatorView.color = .black
-    return indicatorView
-  }()
-  
-  // MARK: - Init
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    
-    indicatorView.translatesAutoresizingMaskIntoConstraints = false
-    addSubview(indicatorView)
-    indicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    indicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError()
-  }
-  
-  // MARK: - Actions
-  
-  final func startAnimating() {
-    indicatorView.startAnimating()
-  }
-  
-  final func stopAnimating() {
-    indicatorView.stopAnimating()
-  }
-}
-
-final class LoadingViewController: UIViewController {
-  
-  // MARK: - Properties
-  
-  private lazy var loadingView = LoadingView()
-  
-  
-  // MARK: - Init / Deinit
-  
-  init() {
-    super.init(nibName: nil, bundle: nil)
-    
-    modalPresentationStyle = .overCurrentContext
-    modalTransitionStyle = .crossDissolve
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError()
-  }
-  
-  // MARK: - Lifecycle
-  
-  override func loadView() {
-    super.loadView()
-    
-    view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-    loadingView.startAnimating()
-    view.addSubview(loadingView)
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    
-    loadingView.frame = view.bounds
-  }
-  
-  static func show(from viewController: UIViewController,
-                   _ animated: Bool = true,
-                   completion: (() -> Void)? = nil) {
-    let loadingViewController: LoadingViewController = .init()
-    viewController.present(loadingViewController, animated: animated, completion: completion)
   }
 }
