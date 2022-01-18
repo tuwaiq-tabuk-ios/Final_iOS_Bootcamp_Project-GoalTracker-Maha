@@ -12,6 +12,7 @@ import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
   
+  
   // MARK: - IBOutlets
   
   @IBOutlet var firstNameTextField: UITextField!
@@ -22,12 +23,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var signUpButton: UIButton!
   @IBOutlet var errorLabel: UILabel!
   
-  // MARK: - View controller LifeCycle
+  // MARK: - View Controller LifeCycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
     
     setUpElement()
+    passwordTextField.enablePasswordToggle()
+    confirmPassword.enablePasswordToggle()
   }
   
   
@@ -94,6 +98,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
+  
   // MARK: - Methods
   
   func showError(_ message:String) {
@@ -123,3 +128,36 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   }
 }
 
+
+// MARK: - Password TextField
+
+extension UITextField {
+  fileprivate func setPasswordToggleImage(_ button: UIButton) {
+    if(isSecureTextEntry){
+      button.setImage(UIImage(named: "CloseEye"), for: .normal)
+    } else {
+      button.setImage(UIImage(named: "OpenEye"), for: .normal)
+    }
+  }
+  
+  
+  func enablePasswordToggle(){
+    
+    let button = UIButton(type: .custom)
+    setPasswordToggleImage(button)
+    button.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                          left: -16,
+                                          bottom: 0,
+                                          right: 0)
+    
+    button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
+    self.rightView = button
+    self.rightViewMode = .always
+    
+  }
+  
+  @IBAction func togglePasswordView(_ sender: Any) {
+    self.isSecureTextEntry = !self.isSecureTextEntry
+    setPasswordToggleImage(sender as! UIButton)
+  }
+}

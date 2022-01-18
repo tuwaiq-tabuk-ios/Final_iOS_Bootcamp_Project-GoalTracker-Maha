@@ -39,6 +39,7 @@ class GoalsViewController: UIViewController {
     fetchGoals()
   }
   
+  // MARK: - Methods
 
   func deleteGoal(_ goal: Goal, completion: ((Error?) -> Void)?) {
     let deletionID = goal.uuid
@@ -87,9 +88,9 @@ class GoalsViewController: UIViewController {
     vc?.presentationController?.delegate = self
     
     return vc
-    
   }
 }
+
 
 // MARK: - FireStore
 
@@ -109,6 +110,7 @@ extension GoalsViewController {
       }
     }
   }
+  
   
   fileprivate func persistGoalToFireStore(_ goal: Goal) {
     var data: [String: Any] = [:]
@@ -158,9 +160,11 @@ extension GoalsViewController: UITableViewDataSource {
     1
   }
   
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return goals.count
   }
+  
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "GoalViewCell",
@@ -170,6 +174,7 @@ extension GoalsViewController: UITableViewDataSource {
     cell.delegate = self
     return cell
   }
+  
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                  forRowAt indexPath: IndexPath) {
@@ -260,6 +265,7 @@ extension GoalsViewController: UIAdaptivePresentationControllerDelegate {
     }
   }
 }
+
 
 struct MainThread {
   static func run(_ block: @escaping (() -> Void)) {
