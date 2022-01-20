@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loadingViewController.dismiss(animated: true) {
           if error != nil {
             self.errorLabel.text = error!.localizedDescription
-            self.errorLabel.alpha = 1
+            self.errorLabel.isHidden = false
           } else {
             
             let homeViewController = self.storyboard?.instantiateViewController(identifier:"HomeVC")
@@ -58,11 +58,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
+  
   // MARK: - Methods
   
   func setUpElement() {
     // hide error label
-    errorLabel.alpha = 0
+    errorLabel.isHidden = true
     emailTextField.becomeFirstResponder()
     Utilities.styleTextField(emailTextField)
     Utilities.styleTextField(passwordTextField)

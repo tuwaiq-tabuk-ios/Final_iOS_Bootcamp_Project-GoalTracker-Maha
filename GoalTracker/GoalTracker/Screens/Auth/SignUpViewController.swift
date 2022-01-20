@@ -23,12 +23,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var signUpButton: UIButton!
   @IBOutlet var errorLabel: UILabel!
   
+  
   // MARK: - View Controller LifeCycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    
     setUpElement()
     passwordTextField.enablePasswordToggle()
     confirmPassword.enablePasswordToggle()
@@ -103,7 +103,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   
   func showError(_ message:String) {
     errorLabel.text = message
-    errorLabel.alpha = 1
+    errorLabel.isHidden = false
   }
   
   
@@ -116,10 +116,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
   
   
   func setUpElement() {
-    errorLabel.alpha = 0
+    errorLabel.isHidden = true
     firstNameTextField.becomeFirstResponder()
     Utilities.styleFilledButton(signUpButton)
-    
   }
   
   
@@ -153,8 +152,8 @@ extension UITextField {
     button.addTarget(self, action: #selector(self.togglePasswordView), for: .touchUpInside)
     self.rightView = button
     self.rightViewMode = .always
-    
   }
+  
   
   @IBAction func togglePasswordView(_ sender: Any) {
     self.isSecureTextEntry = !self.isSecureTextEntry
