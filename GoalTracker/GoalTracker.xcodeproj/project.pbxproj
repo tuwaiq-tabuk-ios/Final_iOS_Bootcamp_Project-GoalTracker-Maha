@@ -12,6 +12,7 @@
 		317C86A7277B7BCC00B85F83 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */; };
 		317C86A9277B7C0C00B85F83 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */; };
 		317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D35E8276A0A02001B0C72 /* JournalViewController.swift */; };
+		318A39CA2798111800EDC0E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318A39C92798111800EDC0E5 /* Constants.swift */; };
 		3191A7612787099100DC13B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191A7602787099100DC13B3 /* ProfileViewController.swift */; };
 		31B1B7B82767544500E38D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7B72767544500E38D0E /* AppDelegate.swift */; };
 		31B1B7BA2767544500E38D0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1B7B92767544500E38D0E /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 		317C86A6277B7BCC00B85F83 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		317C86A8277B7C0C00B85F83 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
 		317D35E8276A0A02001B0C72 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		318A39C92798111800EDC0E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3191A7602787099100DC13B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		31B1B7B42767544500E38D0E /* GoalTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B1B7B72767544500E38D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				31E9A4072773090B0021D795 /* Checkbox.swift */,
 				31B1B7D72767546F00E38D0E /* K.swift */,
 				31B1B7D82767546F00E38D0E /* Utilities.swift */,
+				318A39C92798111800EDC0E5 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				31C045142779A0EB00FAEEB0 /* Category.swift in Sources */,
 				317D35E9276A0A02001B0C72 /* JournalViewController.swift in Sources */,
 				31E9A4082773090B0021D795 /* Checkbox.swift in Sources */,
+				318A39CA2798111800EDC0E5 /* Constants.swift in Sources */,
 				317C86A9277B7C0C00B85F83 /* GoalsTableViewCell.swift in Sources */,
 				3191A7612787099100DC13B3 /* ProfileViewController.swift in Sources */,
 				31E9A40C277309990021D795 /* AddTaskViewController.swift in Sources */,
