@@ -90,8 +90,8 @@ class ToDoViewController: UIViewController {
     
     calendar.delegate = self
     calendar.dataSource = self
-    
   }
+  
   
   // MARK: - IBSegueAction
   
@@ -274,7 +274,7 @@ extension ToDoViewController: AddTaskViewControllerDelegate {
 // MARK: - UIAdaptivePresentationControllerDelegate
 
 extension ToDoViewController: UIAdaptivePresentationControllerDelegate {
-  
+
   func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
     if let indexPath = tableView.indexPathForSelectedRow {
       tableView.deselectRow(at: indexPath, animated: true)
