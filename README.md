@@ -18,8 +18,15 @@ In a way this is as your personal assistant that keeps the organized.
 ## User stories
    - Start your day, month or year by writing down your daily tasks or your long term goals.
    - Set up reminders to motivate you to complete your tasks with good energy.
-<<<<<<< HEAD
    - Write down your achievements or diaries.
-=======
-   - Write down your achievements and diaries.
->>>>>>> e820395481d791bd36010a5b26ebe9353a14d356
+   
+   
+https://user-images.githubusercontent.com/91871416/150650557-aa30f8cc-92a9-44e3-a03c-fe861c5c8902.mp4
+
+https://user-images.githubusercontent.com/91871416/150650865-a9829061-124a-4c52-a637-996e58849ae3.mp4
+
+
+https://user-images.githubusercontent.com/91871416/150650918-2a0570fd-dd1d-40e4-8502-6e302ec57def.mp4
+
+
+https://user-images.githubusercontent.com/91871416/150650957-5f202cc5-0890-4941-8ba0-c589b1bfb8a1.mp4
