@@ -12,7 +12,6 @@ import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
   
-  
   // MARK: - IBOutlets
   
   @IBOutlet var firstNameTextField: UITextField!
